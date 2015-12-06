@@ -10,7 +10,7 @@ angular.module('core').service('Menus', [
 		// Define the menus object
 		this.menus = {};
 
-		// A private function for rendering decision 
+		// A private function for rendering decision
 		var shouldRender = function(user) {
 			if (user) {
 				if (!!~this.roles.indexOf('*')) {
@@ -163,5 +163,13 @@ angular.module('core').service('Menus', [
 
 		//Adding the topbar menu
 		this.addMenu('topbar');
+	}
+]);
+
+//Menu service used for getting mysqltest REST
+angular.module('core').factory('mysqltest', ['$resource',
+	function($resource) {
+		return $resource('mysqltest'
+		);
 	}
 ]);
