@@ -7,7 +7,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
 		$scope.authentication = Authentication;
 
         // Some example string
-        $scope.helloText = 'Project Dashboard;
+        $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
 	}
 ]);
