@@ -20,6 +20,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/utilization',
 			templateUrl: 'modules/core/views/utilization.client.view.html'
 		})
+        .state('projectDashboard', {
+			url: '/Project Dashboard',
+			templateUrl: 'modules/core/views/projectDashboard.client.view.html'
+		})
         .state('mysqltest', {
 			url: '/mysqltest',
 			templateUrl: 'modules/core/views/mysqltest.client.view.html'

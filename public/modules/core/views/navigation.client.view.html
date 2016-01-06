@@ -31,7 +31,8 @@
                 <a ui-sref="mysqltest"><i class="fa  fa-database"></i> <span class="nav-label">MySQL Test</span> </a>
             </li>
             <li ng-class="{active: $uiRoute}" ui-route="/" >
-                <a ui-sref="utilization"><i class="fa-line-chart"></i> <span class="nav-label">Utilization</span> </a>
+                <a ui-sref="utilization"><i class="fa-line-chart"></i> <span class="nav-label">Utilization Dashboard</span>                 </a>
+                <a ui-sref="projectDashboard"><i class="fa fa-bar-chart"></i> <span class="nav-label">Project Dashboard</span>                 </a>
             </li>
             <li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" ng-class="{active: ($uiRoute)}">
                 <a href=""><i class="fa {{item.iconClass}}"></i> <span class="nav-label">{{item.title}} </span> <span ng-show="item.items" class="fa arrow"></span></a>
