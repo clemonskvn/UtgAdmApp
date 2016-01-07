@@ -8,7 +8,7 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         $scope.helloText = 'Utilization View';
         $scope.descriptionText = 'This shows the utilization of the resources';
         
-/*        //Data For Table
+        //Data For Table
         $scope.ngData = [
         {Name: "Moroni", Age: 50, Position: 'PR Menager', Status: 'active', Date: '12.12.2014'},
         {Name: "Teancum", Age: 43, Position: 'CEO/CFO', Status: 'deactive', Date: '10.10.2014'},
@@ -66,58 +66,7 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         datasetStroke : true,
         datasetStrokeWidth : 2,
         datasetFill : true
-    };*/
-         var chartData = [
-        {
-            label: "bar",
-            data: [
-                [1, 34],
-                [2, 25],
-                [3, 19],
-                [4, 34],
-                [5, 32],
-                [6, 44]
-            ]
-        }
-    ];
-        var lineOptions = {
-        series: {
-            lines: {
-                show: true,
-                lineWidth: 2,
-                fill: true,
-                fillColor: {
-                    colors: [
-                        {
-                            opacity: 0.0
-                        },
-                        {
-                            opacity: 0.0
-                        }
-                    ]
-                }
-            }
-        },
-        xaxis: {
-            tickDecimals: 0
-        },
-        colors: ["#1ab394"],
-        grid: {
-            color: "#999999",
-            hoverable: true,
-            clickable: true,
-            tickColor: "#D4D4D4",
-            borderWidth: 0
-        },
-        legend: {
-            show: false
-        },
-        tooltip: true,
-        tooltipOpts: {
-            content: "x: %x, y: %y"
-        }
     };
-    $scope.flotChartData =chartData;
-    $scope.flotLineOptions=lineOptions;
+      
    	}
 ]);
