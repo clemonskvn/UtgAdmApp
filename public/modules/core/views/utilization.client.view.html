@@ -4,33 +4,45 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
-                        <h5>Utilization Dashboard</h5>
+                    <div class="ibox-title">
+                           <h5>Utilization Dashboard</h5>
+                    </div>
                 </div>
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
-                        <h5>Filter Prctice</h5>
-                </div>
+                     <div class="ibox-title">
+                        <h5>Filter Practice</h5>
+                    </div>
+                </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
+                     <div class="ibox-title">
                         <h5>Filter Date From</h5>
-                </div>
+                    </div>
+                </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
+                     <div class="ibox-title">
                         <h5>Filter Date To</h5>
-                </div>
+                    </div>
+                </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
+                     <div class="ibox-title">
                         <h5>Filter Location</h5>
-                </div>
+                    </div>
+                </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
+                     <div class="ibox-title">
                         <h5>Date Last Updated- 01/01/2016</h5>
-                </div>
+                    </div>
+                </div>    
              </div>
         </div>
         <div class="row">
@@ -118,5 +130,33 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div> 
+        
+        
+        <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5></h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+                    <div class="gridStyle" ng-grid="utilTable"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Line Chart</h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+                    <div>
+                        <canvas linechart options="lineOptions" data="lineData" height="140" responsive=true ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
      </div>
