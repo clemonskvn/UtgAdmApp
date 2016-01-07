@@ -1,6 +1,4 @@
 'use strict';
-
-
 angular.module('core').controller('UtilizationController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// This provides Authentication context.
@@ -12,24 +10,24 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         
         //Data For Table
         $scope.ngData = [
-        {Name: "Moroni", Utilization: 50, Position: 'PR Menager', Status: 'active', Date: '12.12.2014'},
-        {Name: "Teancum", Utilization: 43, Position: 'CEO/CFO', Status: 'deactive', Date: '10.10.2014'},
-        {Name: "Jacob", Utilization: 27, Position: 'UI Designer', Status: 'active', Date: '09.11.2013'},
-        {Name: "Nephi", Utilization: 29, Position: 'Java programmer', Status: 'deactive', Date: '22.10.2014'},
-        {Name: "Joseph", Utilization: 22, Position: 'Marketing manager', Status: 'active', Date: '24.08.2013'},
-        {Name: "Monica", Utilization: 43, Position: 'President', Status: 'active', Date: '11.12.2014'},
-        {Name: "Arnold", Utilization: 12, Position: 'CEO', Status: 'active', Date: '07.10.2013'},
-        {Name: "Mark", Utilization: 54, Position: 'Analyst', Status: 'deactive', Date: '03.03.2014'},
-        {Name: "Amelia", Utilization: 33, Position: 'Sales manager', Status: 'deactive', Date: '26.09.2013'},
-        {Name: "Jesica", Utilization: 41, Position: 'Ruby programmer', Status: 'active', Date: '22.12.2013'},
-        {Name: "John", Utilization: 48, Position: 'Marketing manager', Status: 'deactive', Date: '09.10.2014'},
-        {Name: "Berg", Utilization: 19, Position: 'UI/UX Designer', Status: 'active', Date: '12.11.2013'}
+        {Name: "Moroni", Age: 50, Position: 'PR Menager', Status: 'active', Date: '12.12.2014'},
+        {Name: "Teancum", Age: 43, Position: 'CEO/CFO', Status: 'deactive', Date: '10.10.2014'},
+        {Name: "Jacob", Age: 27, Position: 'UI Designer', Status: 'active', Date: '09.11.2013'},
+        {Name: "Nephi", Age: 29, Position: 'Java programmer', Status: 'deactive', Date: '22.10.2014'},
+        {Name: "Joseph", Age: 22, Position: 'Marketing manager', Status: 'active', Date: '24.08.2013'},
+        {Name: "Monica", Age: 43, Position: 'President', Status: 'active', Date: '11.12.2014'},
+        {Name: "Arnold", Age: 12, Position: 'CEO', Status: 'active', Date: '07.10.2013'},
+        {Name: "Mark", Age: 54, Position: 'Analyst', Status: 'deactive', Date: '03.03.2014'},
+        {Name: "Amelia", Age: 33, Position: 'Sales manager', Status: 'deactive', Date: '26.09.2013'},
+        {Name: "Jesica", Age: 41, Position: 'Ruby programmer', Status: 'active', Date: '22.12.2013'},
+        {Name: "John", Age: 48, Position: 'Marketing manager', Status: 'deactive', Date: '09.10.2014'},
+        {Name: "Berg", Age: 19, Position: 'UI/UX Designer', Status: 'active', Date: '12.11.2013'}
     ];
 
     $scope.utilTable = { data: 'ngData' };
         
         //Data for Line Chart
-    this.lineData = {
+    $scope.lineData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
             {
@@ -55,7 +53,7 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         ]
     };
         //Line Options for line chart
-    this.lineOptions = {
+    $scope.lineOptions = {
         scaleShowGridLines : true,
         scaleGridLineColor : "rgba(0,0,0,.05)",
         scaleGridLineWidth : 1,
