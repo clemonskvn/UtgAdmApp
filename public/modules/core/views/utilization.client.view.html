@@ -1,39 +1,39 @@
 <section data-ng-controller="UtilizationController">
-
+    <script src="Chart.js"></script>
     <div class="wrapper wrapper-content" data-ng-controller="UtilizationController">
         <div class="row">
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                           <h5>Utilization Dashboard</h5>
+                           <h6>Utilization Dashboard</h6>
                     </div>
                 </div>
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                      <div class="ibox-title">
-                        <h5>Filter Practice</h5>
+                        <h6>Filter Practice</h6>
                     </div>
                 </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                      <div class="ibox-title">
-                        <h5>Filter Date From</h5>
+                        <h6>Filter Date From</h6>
                     </div>
                 </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                      <div class="ibox-title">
-                        <h5>Filter Date To</h5>
+                        <h6>Filter Date To</h6>
                     </div>
                 </div>    
              </div>
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                      <div class="ibox-title">
-                        <h5>Filter Location</h5>
+                        <h6>Filter Location</h6>
                     </div>
                 </div>    
              </div>
@@ -78,8 +78,8 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-primary pull-right"></span>
-                        <canvas polarchart options="UtilizationController.polarOptions" data="UtilizationController.polarData" width="80" height="80"></canvas>
-                    <h5>Kolter</h5>
+                        <canvas polarchart options="UtilizationController.polarOptions" data="UtilizationController.polarData">                         </canvas>
+                    <h6>last 5 weeks</h6>
                     </div>
                     <div class="ibox-content">
                        <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>-->
