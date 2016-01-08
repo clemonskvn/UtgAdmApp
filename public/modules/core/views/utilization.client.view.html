@@ -49,7 +49,7 @@
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <span class="label label-success pull-right"></span>
+                        <span class="label label-success pull-right">Last Week</span>
                         <h6>Utilization</h6>
                     </div>
                     <div class="ibox-content">
@@ -61,16 +61,16 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="no-margins">Resources over booked</h4>
-                           <!-- <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>-->
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="no-margins">3</h4>
-                           <!-- <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow pace</small></div>-->
-                        </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right"></span>
+                        <h6>Overbooked Resources</h6>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">3</h1>
+
+                    <!--    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>-->
+                        <small></small>
                     </div>
                 </div>
             </div>
@@ -78,6 +78,8 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-primary pull-right"></span>
+                        <canvas polarchart options="UtilizationController.polarOptions" data="UtilizationController.polarData" width="80" height="80"></canvas>
+                    <h5>Kolter</h5>
                     </div>
                     <div class="ibox-content">
                        <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>-->
