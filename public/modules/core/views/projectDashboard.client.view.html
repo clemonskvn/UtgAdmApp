@@ -3,23 +3,38 @@
 
     <div class="wrapper wrapper-content" data-ng-controller="ProjectController">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-sm-2">
              <div class="form-group">
-               <label class="control-label" for="project">Project</label>
+              <!-- <label class="control-label" for="project">Project</label>-->
                 <select name="project" id="project" class="form-control">
-                   <option value="">---Please select---</option>
+                   <option value="">---Please select Project---</option>
                     <option value="0">CNP BCS to BPC</option>
                     <option value="1">Project 2</option>
                     <option value="2">Project 3</option>
                 </select>                 
             </div>
            </div>
-            <div class="col-lg-2">
-            <input type="date" id="fromDate" />
+            <div class='col-sm-2'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
             </div>
-            <div class="col-lg-2">
-            <input type="date" id="toDate" />    
+        </div>
+    </div>
+    <div class='col-sm-2'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
             </div>
+        </div>
+    </div>
+            
             <div class="col-lg-3">
              <div class="ibox float-e-margins">
                     <div class="ibox-title">
