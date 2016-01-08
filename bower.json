@@ -17,7 +17,7 @@
 		"angular-ui-router": "~0.2.11",
         "metisMenu": "~2.0.2",
         "fontawesome": "~4.3.0",
-        "Chart.js": "~1.0.1"
+        "angular-chartjs-directive": "~1.0.1"
         "PACE": "https://github.com/HubSpot/pace.git#~1.0.2"
 	}
 }
