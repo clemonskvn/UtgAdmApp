@@ -27,8 +27,8 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
     $scope.utilTable = { data: 'ngData' };
         
         //Data for Line Chart
-         */
-    this.lineData = {
+
+        this.lineData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
             {
