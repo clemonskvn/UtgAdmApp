@@ -1,15 +1,11 @@
 'use strict';
 
 // Setting up route
-angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider','$urlRouterProvider',
+angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {
 		// Redirect to home view when route not found
 		$urlRouterProvider.otherwise('/');
-        
-        $ocLazyLoadProvider.config({
-        // Set to true if you want to see what and when is dynamically loaded
-        debug: false
-        });
+
 		// Home state routing
 		$stateProvider
 		.state('home', {
