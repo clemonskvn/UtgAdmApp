@@ -19,6 +19,7 @@
     "fontawesome": "~4.3.0",
     "PACE": "https://github.com/HubSpot/pace.git#~1.0.2",
     "oclazyload": "~1.0.9",
-    "angular-ui-grid": "ng-grid#~3.0.7"
+    "angular-ui-grid": "ng-grid#~3.0.7",
+    "Chart.js": "~1.0.2"
   }
 }
