@@ -29,7 +29,10 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         //Data for Line Chart
     
         
-    var data = {
+   /**
+     * Data for Line chart
+     */
+    this.lineData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
             {
@@ -54,8 +57,11 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
             }
         ]
     };
-         //Line Options for line chart
-    var option = {
+
+    /**
+     * Options for Line chart
+     */
+    this.lineOptions = {
         scaleShowGridLines : true,
         scaleGridLineColor : "rgba(0,0,0,.05)",
         scaleGridLineWidth : 1,
@@ -69,8 +75,8 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         datasetStrokeWidth : 2,
         datasetFill : true
     };
-    var ctx = document.getElementById("lineChart").getContext('2d');
-    var myLineChart= new Chart(ctx).Line(data,option);
+   /* var ctx = document.getElementById("lineChart").getContext('2d');
+    var myLineChart= new Chart(ctx).Line(data,option);*/
        
         this.polarData = [
         {

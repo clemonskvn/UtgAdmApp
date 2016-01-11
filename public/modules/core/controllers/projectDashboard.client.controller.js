@@ -10,7 +10,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
         
-        $('#datetimepicker6').datetimepicker();
+      /*  $('#datetimepicker6').datetimepicker();
         $('#datetimepicker7').datetimepicker({
             useCurrent: false //Important! See issue #1075
         });
@@ -19,6 +19,6 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         });
         $("#datetimepicker7").on("dp.change", function (e) {
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
+        });*/
 	}
 ]);
