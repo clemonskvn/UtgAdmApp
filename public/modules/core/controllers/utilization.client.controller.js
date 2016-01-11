@@ -1,5 +1,5 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', 'Authentication',
+angular.module('core',['ngGrid']).controller('UtilizationController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
