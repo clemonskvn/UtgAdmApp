@@ -27,8 +27,9 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
     $scope.utilTable = { data: 'ngData' };
         
         //Data for Line Chart
-         */
-    this.lineData = {
+    
+        
+    var data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
             {
@@ -53,13 +54,8 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
             }
         ]
     };
-
-   
-
-    /**
-     * Options for Line chart
-     */
-    this.lineOptions = {
+         //Line Options for line chart
+    var option = {
         scaleShowGridLines : true,
         scaleGridLineColor : "rgba(0,0,0,.05)",
         scaleGridLineWidth : 1,
@@ -73,8 +69,48 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         datasetStrokeWidth : 2,
         datasetFill : true
     };
-    
-  
+    var ctx = document.getElementById("lineChart").getContext('2d');
+    var myLineChart= new Chart(ctx).Line(data,option);
+       
+        this.polarData = [
+        {
+            value: 300,
+            color:"#a3e1d4",
+            highlight: "#1ab394",
+            label: "App"
+        },
+        {
+            value: 140,
+            color: "#dedede",
+            highlight: "#1ab394",
+            label: "Software"
+        },
+        {
+            value: 200,
+            color: "#A4CEE8",
+            highlight: "#1ab394",
+            label: "Laptop"
+        }
+    ];
+
+    /**
+     * Options for Polar chart
+     */
+    this.polarOptions = {
+        scaleShowLabelBackdrop : true,
+        scaleBackdropColor : "rgba(255,255,255,0.75)",
+        scaleBeginAtZero : true,
+        scaleBackdropPaddingY : 1,
+        scaleBackdropPaddingX : 1,
+        scaleShowLine : true,
+        segmentShowStroke : true,
+        segmentStrokeColor : "#fff",
+        segmentStrokeWidth : 2,
+        animationSteps : 100,
+        animationEasing : "easeOutBounce",
+        animateRotate : true,
+        animateScale : false
+    };
       
    	}
 ]);
