@@ -176,6 +176,7 @@ angular.module('core').factory('mysqltest', ['$resource',
 // Service for Utlization view
 angular.module('core').factory('utilization', ['$resource',
 	function($resource) {
-		return $resource('utilization');
+		return $resource('utilization'
+        );
 	}
 ]);

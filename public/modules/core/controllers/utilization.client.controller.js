@@ -1,6 +1,6 @@
 'use strict';
 angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', 'utilization',
-	function($scope, Authentication) {
+	function($scope, Authentication, utilization) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
