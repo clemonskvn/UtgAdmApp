@@ -38,6 +38,9 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                             files: ['/lib/chartJs/angles.js', '/lib/chartJs/Chart.min.js']
                         },
                         {
+                             files: ['/lib/Chart.js/Chart.js', '/lib/Chart.js/Chart.min.js']
+                        }
+                        {
                             name: 'angular-peity',
                             files: ['/lib/peity/jquery.peity.min.js', '/lib/peity/angular-peity.js']
                         }
