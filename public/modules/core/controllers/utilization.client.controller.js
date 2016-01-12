@@ -1,5 +1,5 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', 'myUtilSql',
+angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', 'utilization',
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
@@ -187,9 +187,9 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
         animateScale : false
     };
         
-        console.log('invoking myUtilSql get');
-		$scope.myUtilSql = myUtilSql.query();
-		console.log($scope.myUtilSql);    
+        console.log('invoking utilization get');
+		$scope.utilization = utilization.query();
+		console.log($scope.utilization);    
       
    	}
 ]);

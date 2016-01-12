@@ -45,7 +45,7 @@ exports.mysqltest = function (req, res){
 
  };
 
-exports.myUtilSql = function (req, res){
+exports.utilization = function (req, res){
   var rows;
 
  	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {

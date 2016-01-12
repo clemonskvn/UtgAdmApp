@@ -10,7 +10,7 @@ module.exports = function(app) {
 		.get(core.mysqltest);
     
     //Utilization Sql Data
-    app.route('/myUtilSql')
-		.get(core.myUtilSql);
+    app.route('/utilization')
+		.get(core.utilization);
 
 };
