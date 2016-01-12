@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'mysqluser',
   password : '123456y',
-  database : 'testadm'
+  database : 'utgadm'
 });
 connection.connect();
 
@@ -31,7 +31,7 @@ exports.index = function(req, res) {
 /**
  * Test MySQL functionality
  */
-exports.mysqltest = function (req, res){
+/*exports.mysqltest = function (req, res){
   var rows;
 
  	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
@@ -43,12 +43,12 @@ exports.mysqltest = function (req, res){
  	    console.log('Error while performing Query.');
  	  });
 
- };
+ };*/
 
 exports.utilization = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT * from TBL_BT_TIMESHEET_DETAIL LIMIT 10', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from Utilization table');
  	    console.log('The sql query result is: ', rows);
