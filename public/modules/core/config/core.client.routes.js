@@ -37,7 +37,17 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
 		})
         .state('projectDashboard', {
 			url: '/Project Dashboard',
-			templateUrl: 'modules/core/views/projectDashboard.client.view.html'
+			templateUrl: 'modules/core/views/projectDashboard.client.view.html',
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                             files: ['/lib/Chart.js/Chart.js', '/lib/Chart.js/Chart.min.js']
+                        },
+                        
+                    ]);
+                }
+            }
 		})
         .state('mysqltest', {
 			url: '/mysqltest',
