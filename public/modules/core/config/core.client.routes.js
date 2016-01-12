@@ -30,7 +30,7 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                         {
                             serie: true,
                             name: 'chart',
-                            files: ['public/lib/Chart.js/Chart.js', 'public/lib/Chart.js/Chart.min.js']
+                            files: ['/lib/Chart.js/Chart.js', '/lib/Chart.js/Chart.min.js']
                         },
                         ]);
                 }
