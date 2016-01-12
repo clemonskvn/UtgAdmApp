@@ -29,9 +29,9 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                     return $ocLazyLoad.load([
                         {
                             serie: true,
-                            name: 'angel',
-                            files: ['/lib/chartJs/angles.js', '/lib/chartJs/angles.js']
-                        },
+                            name: 'angles',
+                            files: ['/lib/chartJs/angles.js', '/lib/chartJs/Chart.min.js']
+                        }
                         ]);
                 }
             }
