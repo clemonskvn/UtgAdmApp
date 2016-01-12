@@ -44,3 +44,17 @@ exports.mysqltest = function (req, res){
  	  });
 
  };
+
+exports.myUtilSql = function (req, res){
+  var rows;
+
+ 	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
+ 	  if (!err) {
+ 	    console.log('Select from Utilization table');
+ 	    console.log('The sql query result is: ', rows);
+ 	    res.jsonp(rows);
+ 	  } else
+ 	    console.log('Error while performing Query.');
+ 	  });
+
+ };

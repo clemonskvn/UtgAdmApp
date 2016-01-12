@@ -131,15 +131,32 @@
         </div> 
         <div class="row">
         <div class="col-lg-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5></h5>
-                    <div ibox-tools></div>
+             <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Utlization Table</h5>
+                        <div ibox-tools></div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat = "resource in mysqltest">
+                                  <td>{{resource.id}}</td>
+                                  <td>{{resource.name}}</td>
+                                  <td>{{resource.score}}</td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="ibox-content">
-                    <div class="gridStyle" ng-grid="utilTable"></div>
-                </div>
-            </div>
         </div>
     <div class="col-lg-6">
             <div class="ibox float-e-margins">

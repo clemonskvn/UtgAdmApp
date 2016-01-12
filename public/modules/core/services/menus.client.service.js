@@ -173,3 +173,9 @@ angular.module('core').factory('mysqltest', ['$resource',
 		);
 	}
 ]);
+// Service for Utlization view
+angular.module('core').factory('myUtilSql', ['$resource',
+	function($resource) {
+		return $resource('myUtilSql');
+	}
+]);
