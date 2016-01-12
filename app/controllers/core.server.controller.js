@@ -31,7 +31,7 @@ exports.index = function(req, res) {
 /**
  * Test MySQL functionality
  */
-/*exports.mysqltest = function (req, res){
+exports.mysqltest = function (req, res){
   var rows;
 
  	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
@@ -43,7 +43,7 @@ exports.index = function(req, res) {
  	    console.log('Error while performing Query.');
  	  });
 
- };*/
+ };
 
 exports.utilization = function (req, res){
   var rows;

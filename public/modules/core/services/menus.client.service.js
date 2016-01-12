@@ -167,12 +167,12 @@ angular.module('core').service('Menus', [
 ]);
 
 //Menu service used for getting mysqltest REST
-/*angular.module('core').factory('mysqltest', ['$resource',
+angular.module('core').factory('mysqltest', ['$resource',
 	function($resource) {
 		return $resource('mysqltest'
 		);
 	}
-]);*/
+]);
 // Service for Utlization view
 angular.module('core').factory('utilization', ['$resource',
 	function($resource) {
