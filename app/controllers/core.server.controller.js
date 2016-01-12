@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
 var mysql      = require('mysql');
 var bodyParser = require('body-parser');
 var connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : '10.0.0.208',
   user     : 'mysqluser',
   password : '123456y',
   database : 'utgadm'
