@@ -28,11 +28,20 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
+
                             serie: true,
+                            name: 'angular-flot',
+                            files: [ '/lib/flot/jquery.flot.js', '/lib/flot/jquery.flot.time.js', '/lib/flot/jquery.flot.tooltip.min.js', '/lib/flot/jquery.flot.spline.js', '/lib/flot/jquery.flot.resize.js', '/lib/flot/jquery.flot.pie.js', '/lib/flot/curvedLines.js', '/lib/flot/angular-flot.js', ]
+                        },
+                        {
                             name: 'angles',
                             files: ['/lib/chartJs/angles.js', '/lib/chartJs/Chart.min.js']
+                        },
+                        {
+                            name: 'angular-peity',
+                            files: ['/lib/peity/jquery.peity.min.js', '/lib/peity/angular-peity.js']
                         }
-                        ]);
+                    ]);
                 }
             }
 		})
