@@ -58,7 +58,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         ]
     };    
     var bar = document.getElementById("myBarChart").getContext("2d");    
-    var myBarChart = new Chart(bar).PolarArea(barData, barOptions);  
+    var myBarChart = new Chart(bar).Bar(barData, barOptions);  
     
         
 	}
