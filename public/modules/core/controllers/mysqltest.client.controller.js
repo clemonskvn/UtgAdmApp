@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('MySqlTestController', ['$scope', 'Authentication', 'mysqltest',
-	function($scope, Authentication, mysqltest) {
+angular.module('core').controller('MySqlTestController', ['$scope', 'Authentication', 
+        function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -11,8 +11,8 @@ angular.module('core').controller('MySqlTestController', ['$scope', 'Authenticat
     $scope.descriptionText = 'Test Connection& Query to MySQL DB';
 
 		//invoke mysqltest REST
-		console.log('invoking mysqltest get');
+		/*console.log('invoking mysqltest get');
 		$scope.mysqltest = mysqltest.query();
-		console.log($scope.mysqltest);
+		console.log($scope.mysqltest);*/
 	}
 ]);

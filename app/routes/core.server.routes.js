@@ -6,8 +6,8 @@ module.exports = function(app) {
 	app.route('/').get(core.index);
 
 	//test server route
-	app.route('/mysqltest')
-		.get(core.mysqltest);
+	/*app.route('/mysqltest')
+		.get(core.mysqltest);*/
     
     //Utilization Sql Data
     app.route('/utilization')
