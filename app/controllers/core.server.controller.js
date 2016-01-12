@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'mysqluser',
   password : '123456y',
-  database : 'utgadm'
+  database : 'testadm'
 });
 connection.connect();
 
@@ -34,7 +34,7 @@ exports.index = function(req, res) {
 exports.mysqltest = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from TBL_BT_TIMESHEET_DETAIL LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from players table');
  	    console.log('The sql query result is: ', rows);
