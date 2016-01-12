@@ -1,5 +1,5 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', myUtilSql
+angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', myUtilSql,
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
