@@ -52,11 +52,7 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                         },
                         {
                         name: 'angular-flot',
-                        files: [ 'lib/angular-flot/jquery.flot.js', 'lib/angular-flot/jquery.flot.time.js', 'lib/angular-flot/jquery.flot.tooltip.min.js', 'lib/angular-flot/jquery.flot.spline.js', 'lib/angular-flot/jquery.flot.resize.js', 'lib/angular-flot/jquery.flot.pie.js', 'lib/angular-flot/curvedLines.js', 'lib/angular-flot/angular-flot.js']
-                        },
-                        {
-                            files: ['/lib/angular-datepicker/assets/js/index.js', '/lib/angular-datepicker/dist/angular-datepicker.mim.css', '/lib/angular-datepicker/dist/angular-datepicker.mim.js',
-'/lib/angular-datepicker/dist/angular-datepicker.sourcemap.map', '/lib/angular-datepicker/src/css/angular-datepicker.css', '/lib/angular-datepicker/src/js/angular-datepiker.js' ]
+                        files: [ 'lib/angular-flot/jquery.flot.js', 'lib/angular-flot/jquery.flot.time.js', 'lib/angular-flot/jquery.flot.tooltip.min.js', 'lib/angular-flot/jquery.flot.spline.js', 'lib/angular-flot/jquery.flot.resize.js', 'lib/angular-flot/jquery.flot.pie.js', 'lib/angular-flot/curvedLines.js', 'lib/angular-flot/angular-flot.js', ]
                         },
                         ]);
                 }
