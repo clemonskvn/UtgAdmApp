@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'mysqluser',
   password : '123456y',
-  database : 'testadm'
+  database : 'utgadm'
 });
 connection.connect();
 
@@ -48,7 +48,7 @@ exports.mysqltest = function (req, res){
 exports.utilization = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT * from TBL_BT_TIMESHEET_DETAIL', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from Utilization table');
  	    console.log('The sql query result is: ', rows);
