@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
 var mysql      = require('mysql');
 var bodyParser = require('body-parser');
 var connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : '54.84.46.213',
   user     : 'mysqluser',
   password : '123456y',
   database : 'utgadm'
@@ -48,7 +48,7 @@ exports.mysqltest = function (req, res){
 exports.utilization = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from TBL_BT_TIMESHEET_DETAIL', function(err, rows, fields) {
+ 	connection.query('SELECT * from TBL_BT_TIMESHEET_DETAIL LIMIT 10', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from Utilization table');
  	    console.log('The sql query result is: ', rows);
