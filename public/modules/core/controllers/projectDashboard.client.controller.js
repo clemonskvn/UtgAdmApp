@@ -221,7 +221,8 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     $scope.flotPieOptions = {
         series: {
             pie: {
-                show: true
+                show: true,
+                radius: 3,
             }
         },
         grid: {
