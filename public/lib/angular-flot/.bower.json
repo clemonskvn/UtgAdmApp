@@ -16,6 +16,5 @@
   },
   "_source": "git://github.com/develersrl/angular-flot.git",
   "_target": "~0.0.16",
-  "_originalSource": "angular-flot",
-  "_direct": true
+  "_originalSource": "angular-flot"
 }

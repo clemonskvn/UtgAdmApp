@@ -47,10 +47,14 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
-                             files: ['/lib/Chart.js/Chart.js', '/lib/Chart.js/Chart.min.js']
+                            serie: true, 
+                            files: ['/lib/Chart.js/Chart.js', '/lib/Chart.js/Chart.min.js']
                         },
-                        
-                    ]);
+                        {
+                        name: 'angular-flot',
+                        files: ['/lib/angular-flot/angular-flot.js']
+                        },
+                        ]);
                 }
             }
 		})
