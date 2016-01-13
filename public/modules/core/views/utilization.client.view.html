@@ -142,15 +142,15 @@
                             <thead>
                             <tr>
                                 <th>Staff</th>
-                                <th>Location</th>
-                                <th>Practice</th>
+                                <th>Namme</th>
+                                <th>Score</th>
                             </tr>
                             </thead>
                             <tbody>
                               <tr ng-repeat = "resource in utilization">
-                                  <td>{{resource.STAFF_MEMBER}}</td>
-                                  <td>{{resource.LOCATION}}</td>
-                                  <td>{{resource.PRACTICE}}</td>
+                                  <td>{{resource.id}}</td>
+                                  <td>{{resource.name}}</td>
+                                  <td>{{resource.score}}</td>
                               </tr>
                             </tbody>
                         </table>
