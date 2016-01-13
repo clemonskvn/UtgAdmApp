@@ -135,6 +135,64 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
             content: "x: %x, y: %y"
         }
     };
+     $scope.flotLineAreaData=  [
+        {
+            label: "line",
+            data: [
+                [1, 34],
+                [2, 22],
+                [3, 19],
+                [4, 12],
+                [5, 32],
+                [6, 54],
+                [7, 23],
+                [8, 57],
+                [9, 12],
+                [10, 24],
+                [11, 44],
+                [12, 64],
+                [13, 21]
+            ]
+        }
+    ];
+    $scope.flotLineAreaOptions={
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [
+                        {
+                            opacity: 0.7
+                        },
+                        {
+                            opacity: 0.5
+                        }
+                    ]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0
+        },
+        colors: ["#1ab394"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth: 0
+        },
+        legend: {
+            show: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+    
         
 	}
 ]);
