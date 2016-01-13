@@ -60,6 +60,40 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     var bar = document.getElementById("myBarChart").getContext("2d");    
     var myBarChart = new Chart(bar).Bar(barData, barOptions);  
     
+        $scope.flotChartData= [
+        { label: "Data 1", data: d1, color: '#17a084'},
+        { label: "Data 2", data: d2, color: '#127e68' }
+    ];
+
+    $scope.flotChartOptions = {
+        xaxis: {
+            tickDecimals: 0
+        },
+        series: {
+            lines: {
+                show: true,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 1
+                    }, {
+                        opacity: 1
+                    }]
+                }
+            },
+            points: {
+                width: 0.1,
+                show: false
+            }
+        },
+        grid: {
+            show: false,
+            borderWidth: 0
+        },
+        legend: {
+            show: false
+        }
+    };
         
 	}
 ]);
