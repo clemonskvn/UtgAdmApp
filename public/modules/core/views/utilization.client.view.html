@@ -141,16 +141,29 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Staff</th>
+                                <th>Name</th>
+                                <th>Start week</th>
+                                <th>End week</th>
+                                <th>Week no</th>
+                                <th>Week no</th>
+                                <th>Year</th>
                                 <th>Practice</th>
-                                <th>Project</th>
+                                <th>Staff</th>
+                                <th>Total Hours</th>
+                                
                             </tr>
                             </thead>
                             <tbody>
                               <tr ng-repeat = "resource in utilization">
-                                  <td>{{resource.STAFF_MEMBER}}</td>
+                                  <td>{{resource.NAME}}</td>
+                                  <td>{{resource.START_WEEK}}</td>
+                                  <td>{{resource.END_WEEK}}</td>
+                                  <td>{{resource.WEEK_NO}}</td>
+                                  <td>{{resource.DIM_YEAR}}</td>
                                   <td>{{resource.PRACTICE}}</td>
-                                  <td>{{resource.PROJECT}}</td>
+                                  <td>{{resource.STAFF_MEMBER}}</td>
+                                  <td>{{resource.TOTAL_HOURS}}</td>
+                                  
                               </tr>
                             </tbody>
                         </table>
