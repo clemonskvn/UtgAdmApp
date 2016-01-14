@@ -48,7 +48,7 @@ exports.mysqltest = function (req, res){
 exports.utilization = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from V_VALID_40HRS LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT * from V_VALID_40HRS', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from Utilization table');
  	    console.log('The sql query result is: ', rows);
