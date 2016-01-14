@@ -22,6 +22,5 @@
     "angular-ui-grid": "ng-grid#~3.0.7",
     "Chart.js": "~1.0.2",
     "angular-flot": "~0.0.16",
-    "datatables": "DataTables#~1.10.10"
-  }
+    }
 }
