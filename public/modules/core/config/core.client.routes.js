@@ -54,6 +54,20 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
                         name: 'angular-flot',
                         files: [ 'lib/angular-flot/jquery.flot.js', 'lib/angular-flot/jquery.flot.time.js', 'lib/angular-flot/jquery.flot.tooltip.min.js', 'lib/angular-flot/jquery.flot.spline.js', 'lib/angular-flot/jquery.flot.resize.js', 'lib/angular-flot/jquery.flot.pie.js', 'lib/angular-flot/curvedLines.js', 'lib/angular-flot/angular-flot.js', ]
                         },
+                        {
+                        name: 'datatables',
+                        files: [ 'lib/datatables/media/css/dataTables.bootstrap.css',
+                               'lib/datatables/media/css/dataTables.bootstrap.min.css',
+                               'lib/datatables/media/css/dataTables.foundation.css',
+                               'lib/datatables/media/css/dataTables.foundation.min.css',
+                               'lib/datatables/media/css/dataTables.jqueryui.min.css',
+                               'lib/datatables/media/css/dataTables.jquery.dataTables.min.css',
+                               'lib/datatables/media/js/dataTables.bootstrap.min.js',
+                               'lib/datatables/media/js/dataTables.foundation.min.js',
+                               'lib/datatables/media/js/dataTables.jqueryui.min.js',
+                               'lib/datatables/media/js/jquery.js',
+                                'lib/datatables/media/js/jquery.dataTables.min.js'                                                    ]
+                        },
                         ]);
                 }
             }
