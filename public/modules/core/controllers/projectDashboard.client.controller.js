@@ -54,6 +54,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         barStrokeWidth : 2,
         barValueSpacing : 5,
         barDatasetSpacing : 1
+    }
     /**
      * Data for Bar chart
      */
@@ -258,8 +259,6 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
             defaultTheme: false
         }
     };
-    
-    
-        
-	}
+
+ }
 ]);
