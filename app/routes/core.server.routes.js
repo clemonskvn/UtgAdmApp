@@ -17,6 +17,10 @@ module.exports = function(app) {
     app.route('/mypracticepost')
 			.post(core.mypracticepost);
     
+    // Date range in Utlization
+   /* app.route('/mydaterange')
+			.post(core.mydaterange);*/
+    
     //Utilization Sql Data
     app.route('/utilization')
 		.get(core.utilization);

@@ -221,10 +221,10 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
                         params.count()));
                 }
             });*/
-        $scope.myChangeFunction= function(){
+        /*$scope.myChangeFunction= function(){
             console.log($scope.example.datefrom);
             console.log($scope.example.dateto);
-        }
+        }*/
         
         $scope.practiceQuery = function(){
         console.log($scope.filter);
@@ -236,6 +236,12 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
           $scope.error = response.message;
         });
         }
+
+        $scope.update(){
+            console.log($scope.filter)
+            
+        }
+       
         
    	}
 ]);

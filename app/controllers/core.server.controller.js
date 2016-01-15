@@ -77,19 +77,22 @@ connection.query('SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZA
 //Practice Filter
 
     
- };   
+ };  
+//Post for Practice
 exports.mypracticepost = function (req, res){
    var rows;
  	console.log ('POST Request recieved')
  	console.log(req.body);
 	console.log(req.body.PRACTICE);
-    if(req.body.PRACTICE!= "" ){
-var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM  V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL and PRACTICE = ' " + req.body.PRACTICE + "'";
+    console.log(req.body.LOCATION);
+    console.log(req.body.START);
+    console.log(req.body.END);
+    
+    /*if(req.body.PRACTICE!= "" ){*/
+var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION='"req.body.LOCATION"' and START_DATE>='"+req.body.START+"' and START_DATE<='"+req.body.END+"' and PRACTICE='"+req.body.PRACTICE+"'";
 	console.log(sQuery1);
-    }else{
-        var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL LIMIT 10";
-    }
-  	connection.query(sQuery1, function(err, rows, fields) {
+    
+   	connection.query(sQuery1, function(err, rows, fields) {
   	  if (!err) {
   	    console.log('Select from Util table');
   	    console.log('The sql query result is: ', rows);
@@ -99,3 +102,22 @@ var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATIO
   	  });
 
   };
+//Post fro Dat range
+/*exports.mydaterange = function (req, res){
+   var rows;
+ 	console.log ('POST Request recieved')
+ 	console.log(req.body);
+	console.log(req.body.fromdate);
+    console.log(req.body.todate);    
+var sQuery2 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM  V_WEEKLY_UTILIZATION where START_DATE>' " + req.body.fromdate + "' START_DATE<='"+ req.body.todate + "' ";
+	console.log(sQuery1);
+   	connection.query(sQuery2, function(err, rows, fields) {
+  	  if (!err) {
+  	    console.log('Select from Util table for dates');
+  	    console.log('The sql query result is: ', rows);
+  	    res.jsonp(rows);
+  	  } else
+  	    console.log('Error while performing Query.');
+  	  });
+
+  };*/
