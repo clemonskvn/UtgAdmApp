@@ -83,9 +83,12 @@ exports.mypracticepost = function (req, res){
  	console.log ('POST Request recieved')
  	console.log(req.body);
 	console.log(req.body.PRACTICE);
-	var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM  V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL and PRACTICE = ' " + req.body.PRACTICE + "'";
+    if(req.body.PRACTICE!= "" ){
+var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM  V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL and PRACTICE = ' " + req.body.PRACTICE + "'";
 	console.log(sQuery1);
-
+    }else{
+        var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL LIMIT 10";
+    }
   	connection.query(sQuery1, function(err, rows, fields) {
   	  if (!err) {
   	    console.log('Select from Util table');
