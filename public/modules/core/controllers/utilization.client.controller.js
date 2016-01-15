@@ -221,6 +221,10 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
                         params.count()));
                 }
             });*/
+        $scope.myChangeFunction= function(){
+            console.log($scope.example.datefrom);
+            console.log($scope.example.dateto);
+        }
         
    	}
 ]);

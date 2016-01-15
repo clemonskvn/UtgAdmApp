@@ -98,14 +98,12 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                <input type="date" id="dateFrom" name="input" class="form-control" ng-model="example.value"
-       placeholder="Start Date" min="2015-01-01" max="2016-12-31" required />
+                                <input type="date" id="dateto" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.datefrom" placeholder="Start Date" min="2015-01-01" max="2016-12-31" required />
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                   <input type="date" id="dateTO" name="input"  class="form-control" ng-model="example.value"
-       placeholder="End Date" min="2015-01-01" max="2016-12-31" required />
+                                <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.dateto" placeholder="End Date" min="{{example.datefrom}}" max="2016-12-31" required />
                                 </div>
                                 </div>
                            <div class="col-sm-3">
