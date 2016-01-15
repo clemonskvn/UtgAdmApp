@@ -34,7 +34,7 @@ exports.index = function(req, res) {
 exports.mysqltest = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from players LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT * from testadm.players LIMIT 10', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from players table');
  	    console.log('The sql query result is: ', rows);
@@ -44,6 +44,25 @@ exports.mysqltest = function (req, res){
  	  });
 
  };
+
+exports.mysqltestpost = function (req, res){
+   var rows;
+ 	console.log ('POST Request recieved')
+ 	console.log(req.body);
+	console.log(req.body.name);
+	var sQuery = "SELECT * from testadm.players where name = '" + req.body.name + "'";
+	console.log(sQuery);
+
+  	connection.query(sQuery, function(err, rows, fields) {
+  	  if (!err) {
+  	    console.log('Select from players table');
+  	    console.log('The sql query result is: ', rows);
+  	    res.jsonp(rows);
+  	  } else
+  	    console.log('Error while performing Query.');
+  	  });
+
+  };
 
 exports.utilization = function (req, res){
   var rows;

@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('MySqlTestController', ['$scope', 'Authentication', 'mysqltest',
-        function($scope, Authentication, mysqltest ) {
+angular.module('core').controller('MySqlTestController', ['$scope', '$http', 'Authentication', 'mysqltest',
+        function($scope, $http, Authentication, mysqltest ) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -14,5 +14,17 @@ angular.module('core').controller('MySqlTestController', ['$scope', 'Authenticat
 		console.log('invoking mysqltest get');
 		$scope.mysqltest = mysqltest.query();
 		console.log($scope.mysqltest);
+        
+    $scope.mysqltestquery = function(){
+        console.log($scope.filter);
+        //POST method
+        $http.post('/mysqltestpost', $scope.filter).success(function(response) {
+          // If successful we assign the response to the global user model
+          $scope.mysqltest = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        });
+        }
+    
 	}
 ]);
