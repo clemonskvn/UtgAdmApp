@@ -45,6 +45,15 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         animateScale : false
     };
 
+    var barOptions = {
+        scaleBeginAtZero : true,
+        scaleShowGridLines : true,
+        scaleGridLineColor : "rgba(0,0,0,.05)",
+        scaleGridLineWidth : 1,
+        barShowStroke : true,
+        barStrokeWidth : 2,
+        barValueSpacing : 5,
+        barDatasetSpacing : 1
     /**
      * Data for Bar chart
      */
