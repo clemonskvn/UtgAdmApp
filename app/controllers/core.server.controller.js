@@ -94,4 +94,3 @@ exports.mypracticepost = function (req, res){
   	  });
 
   };
- };
