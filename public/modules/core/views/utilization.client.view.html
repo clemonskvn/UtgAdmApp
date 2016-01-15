@@ -28,8 +28,9 @@
                         <span class="label label-success pull-right">Last Week</span>
                         <h6>Utilization</h6>
                     </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">{{utilization.TOTAL_UTILIZATION}}%</h1>
+                    <div class="ibox-content" ng-repeat="util in utilization">
+                        <h3 class="no-margins">{{util.TOTAL_UTILIZATION}}%</h3>
+                         <div class="font-bold text-navy">{{util.TOTAL_UTILIZATION}}% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>
                     </div>
                 </div>
             </div>
