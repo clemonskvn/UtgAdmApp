@@ -1,328 +1,173 @@
 <section data-ng-controller="UtilizationController">
        <div class="wrapper wrapper-content" data-ng-controller="UtilizationController">
-       <div class="p-w-md m-t-sm">
         <div class="row">
-
-            <div class="col-sm-4">
-                <h1 class="m-b-xs">
-                    Utlization dashboard
-                </h1>
-                <div class="m-b-sm">
-                    <div sparkline spark-data="chart.sparkline1" spark-options="chart.sparkline1Options"></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <small class="stats-label">Last week Utlization</small>
-                        <h4>99%</h4>
-                    </div>
-
-                    <div class="col-xs-4">
-                        <small class="stats-label">Last week Utlization US/Non-US</small>
-                        <h4>99%</h4>
-                    </div>
-                    <div class="col-xs-4">
-                        <small class="stats-label">Overbooked Resources </small>
-                        <h4>3</h4>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                           <h6>Utilization Dashboard</h6>
                     </div>
                 </div>
-
-            </div>
-            <div class="col-sm-4">
-                <h3 class="m-b-xs">
-                     Date Last Updated
-                </h3>
-                <small>
-                   1/1/2016 10:53 AM
-                </small>
-                <!--<div class="m-b-sm">
-                    <div sparkline spark-data="chart.sparkline2" spark-options="chart.sparkline2Options"></div>
-                </div>-->
-                <div class="row">
-                    <div class="col-xs-4">
-                        <input class="form-control" ng-model="filter.name">
+             </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                       <input type="text" id="quantity" value="" placeholder="Practice" class="form-control">
+                </div>    
+             </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                        <input type="text" id="quantity" value="" placeholder="Date from" class="form-control">
+               </div>    
+             </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                         <input type="text" id="quantity" value="" placeholder="Date to" class="form-control">
+                </div>    
+             </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                      <input type="text" id="quantity" value="" placeholder="Location" class="form-control">
+                </div>    
+             </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                     <div class="ibox-title">
+                        <h6>Date Last Updated- 01/01/2016</h6>
                     </div>
-                    <div class="col-xs-4">
-                        <input class="form-control" ng-model="filter.name">
-                    </div>
-                    <div class="col-xs-4">
-                       <input class="form-control" ng-model="filter.name">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                       <input class="form-control" ng-model="filter.name">
-                    </div>
-
-                    <div class="col-xs-4">
-                        <input class="form-control" ng-model="filter.name">
-                    </div>
-                    <div class="col-xs-4">
-                        <input class="form-control" ng-model="filter.name">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-
-                <div class="row m-t-xs">
-                    <div class="col-xs-6">
-                       <!-- <h5 class="m-b-xs">Non- Billable Activities</h5>-->
-                        <h1 class="no-margins">Non-Billable Activities</h1>
-                       <!-- <div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div>-->
-                    </div>
-                    <div class="col-xs-6">
-                        <!--<h5 class="m-b-xs">Sals current year</h5>-->
-                        <h1 class="no-margins">Over Utilized Resources</h1>
-                        <!--<div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div>-->
-                    </div>
-                </div>
-
-
-                <table class="table small m-t-sm">
-                    <tbody>
-                    <tr>
-                        <td>
-                            <strong>5</strong> Projects
-
-                        </td>
-                        <td>
-                            <strong>4</strong> Resources
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>120</strong> h total
-                        </td>
-                        <td>
-                            <strong>200h/160h</strong> capacity
-                        </td>
-                    </tr>
-                    <!--<tr>
-                        <td>
-                            <strong>154</strong> Companies
-                        </td>
-                        <td>
-                            <strong>32</strong> Clients
-                        </td>
-                    </tr>-->
-                    </tbody>
-                </table>
-
-
-
-            </div>
-
+                </div>    
+             </div>
         </div>
-
         <div class="row">
-            <div class="col-lg-12">
-                <div class="small pull-left col-md-3 m-l-lg m-t-md">
-                    <strong>Sales char</strong> have evolved over the years sometimes.
-                </div>
-                <div class="small pull-right col-md-3 m-t-md text-right">
-                    <strong>There are many</strong> variations of passages of Lorem Ipsum available, but the majority have suffered.
-                </div>
-                <div class="flot-chart m-b-xl">
-
-                    <div class="flot-chart m-b-xl">
-                        <div flot class="flot-chart-content" dataset="chart.flotData" options="chart.flotOptions"></div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">Last Week</span>
+                        <h6>Utilization</h6>
                     </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox">
-
-
-
                     <div class="ibox-content">
+                        <h1 class="no-margins">99%</h1>
 
+                       <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>-->
+                        <small></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right"></span>
+                        <h6>Overbooked Resources</h6>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">3</h1>
+
+                    <!--    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>-->
+                        <small></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="ibox float-e-margins">
+                    <!--<div class="ibox-title">
+                        <span class="label label-primary pull-right"></span>
+                        <canvas polarchart options="UtilizationController.polarOptions" data="UtilizationController.polarData">                         </canvas>
+                    <h6>last 5 weeks</h6>
+                    </div>-->
+                    <div class="ibox-content">
+                        <canvas id="myPolarChart" width="100" height="100"></canvas>
+                       <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>-->
+                        <small></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+             <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Today</span>
+                        <h6>Non-Billable Activities</h6>
+                    </div>
+                    <div class="ibox-content">
                         <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class="control-label" for="product_name">Project Name</label>
-                                    <input type="text" id="product_name" name="product_name" value="" placeholder="Project Name" class="form-control">
-                                </div>
+                            <div class="col-md-6">
+                                <h4 class="no-margins">5 resources</h4>
+                               <!-- <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>-->
                             </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="control-label" for="price">Name</label>
-                                    <input type="text" id="price" name="price" value="" placeholder="Name" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="control-label" for="quantity">Company</label>
-                                    <input type="text" id="quantity" name="quantity" value="" placeholder="Company" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class="control-label" for="status">Status</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="1" selected="">Completed</option>
-                                        <option value="0">Pending</option>
-                                    </select>
-                                </div>
+                            <div class="col-md-6">
+                                <h4 class="no-margins">120 hour total</h4>
+                               <!-- <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow pace</small></div>-->
                             </div>
                         </div>
-
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Master project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>$892,074</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$963,486</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Betha project</td>
-                                    <td>John Smith</td>
-                                    <td>$996,824</td>
-                                    <td>Erat Volutpat</td>
-                                    <td><strong>75%</strong></td>
-                                    <td>Jul 18, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$105,192</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$674,803</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Master project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>$174,729</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$823,198</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Project <small>This is example of project</small></td>
-                                    <td>Patrick Smith</td>
-                                    <td>$778,696</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$861,063</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Betha project</td>
-                                    <td>John Smith</td>
-                                    <td>$109,125</td>
-                                    <td>Erat Volutpat</td>
-                                    <td><strong>75%</strong></td>
-                                    <td>Jul 18, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$600,978</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$150,161</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Project <small>This is example of project</small></td>
-                                    <td>Patrick Smith</td>
-                                    <td>$160,586</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$110,612</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                    </div>
+            </div>
+        </div>
+            <div class="col-lg-3">
+             <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Today</span>
+                        <h6>Over Utilized Resources</h6>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="no-margins">4 resources</h4>
+                               <!-- <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>-->
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="no-margins">200h/160h capacity</h4>
+                               <!-- <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow pace</small></div>-->
+                            </div>
                         </div>
+                    </div>
+            </div>
+</div>
+            
+        </div> 
+        <div class="row">
+        <div class="col-lg-6">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Start week</th>
+                                <th>End week</th>
+                                <th>Week no</th>
+                                <th>Year</th>
+                                <th>Practice</th>
+                                <th>Staff</th>
+                                <th>Total Hours</th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat = "resource in utilization">
+                                  <td>{{resource.NAME}}</td>
+                                  <td>{{resource.START_WEEK}}</td>
+                                  <td>{{resource.END_WEEK}}</td>
+                                  <td>{{resource.WEEK_NO}}</td>
+                                  <td>{{resource.DIM_YEAR}}</td>
+                                  <td>{{resource.PRACTICE}}</td>
+                                  <td>{{resource.STAFF_MEMBER}}</td>
+                                  <td>{{resource.TOTAL_HOURS}}</td>
+                                  
+                              </tr>
+                            </tbody>
+                        </table>
 
+                    </div>
+                 </div>
+    <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Graphical Representation</h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+                    <div>
+                       <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-       </div>
-   
+             
+</div>
+     </div>
