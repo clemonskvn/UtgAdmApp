@@ -1,6 +1,6 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', 'Authentication', 'utilization',
-	function($scope, Authentication, utilization) {
+angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization',
+	function($scope, $http, Authentication, utilization) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -225,7 +225,6 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
             console.log($scope.example.datefrom);
             console.log($scope.example.dateto);
         }
-        
         
         $scope.practiceQuery = function(){
         console.log($scope.filter);
