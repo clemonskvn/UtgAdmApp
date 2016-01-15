@@ -10,7 +10,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
         
-    $scope.doughnutData = [
+    var doughnutData = [
         {
             value: 300,
             color:"#a3e1d4",
@@ -34,7 +34,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     /**
      * Options for Doughnut chart
      */
-    $scope.doughnutOptions = {
+    var doughnutOptions = {
         segmentShowStroke : true,
         segmentStrokeColor : "#fff",
         segmentStrokeWidth : 2,
