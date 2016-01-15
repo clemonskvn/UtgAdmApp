@@ -44,7 +44,9 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         animateRotate : true,
         animateScale : false
     };
-
+    var dough = document.getElementById("myDougnut").getContext("2d");    
+    var doughnutChart = new Chart(dough).Doughnut(doughnutData, doughnutOptions);  
+        
     var barOptions = {
         scaleBeginAtZero : true,
         scaleShowGridLines : true,
@@ -55,6 +57,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         barValueSpacing : 5,
         barDatasetSpacing : 1
     }
+     
     /**
      * Data for Bar chart
      */
