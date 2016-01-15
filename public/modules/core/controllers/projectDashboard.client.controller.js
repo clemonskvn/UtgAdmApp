@@ -262,6 +262,28 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
             defaultTheme: false
         }
     };
-
+    //Data for Select
+        $scope.Projects = [{
+                Id: 1,
+                Name: 'Project 1'
+            }, {
+                Id: 2,
+                Name: 'Project 2'
+            }, {
+                Id: 3,
+                Name: 'Project 3'
+            },
+                {
+                Id: 4,
+                Name: 'Project 4'
+            }          ];
+     
+        $scope.onChange= function(){
+            console.log($scope.selectedProject.Name);
+        }
+        $scope.myChangeFunction= function(){
+            console.log($scope.example.value1);
+            console.log($scope.example.value2);
+        }
  }
 ]);
