@@ -93,8 +93,8 @@
         </div> 
                         <div class="row">
                             <div class="col-sm-3">
-                                <div class="input-group"><input type="text" placeholder="Practice" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                <div class="input-group"><input type="text" placeholder="Practice" ng-model="filter.PRACTICE" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="practiceQuery()> Go!</button> </span></div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
@@ -122,28 +122,23 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Start week</th>
-                                <th>End week</th>
-                                <th>Week no</th>
-                                <th>Year</th>
-                                <th>Practice</th>
-                                <th>Staff</th>
-                                <th>Total Hours</th>
+                                <th>TITLE</th>
+                                <th>STAFF_MEMBER</th>
+                                <th>BILLABLE_UTILIZATION</th>
+                                <th>PRD_DEV_UTILIZATION</th>
+                                <th>TOTAL_UTILIZATION</th>
+                             
                                 
                             </tr>
                             </thead>
                             <tbody>
                               <tr ng-repeat = "resource in utilization">
-                                  <td>{{resource.NAME}}</td>
-                                  <td>{{resource.START_WEEK}}</td>
-                                  <td>{{resource.END_WEEK}}</td>
-                                  <td>{{resource.WEEK_NO}}</td>
-                                  <td>{{resource.DIM_YEAR}}</td>
-                                  <td>{{resource.PRACTICE}}</td>
+                                  <td>{{resource.TITLE}}</td>
                                   <td>{{resource.STAFF_MEMBER}}</td>
-                                  <td>{{resource.TOTAL_HOURS}}</td>
-                                  
+                                  <td>{{resource.BILLABLE_UTILIZATION}}</td>
+                                  <td>{{resource.PRD_DEV_UTILIZATION}}</td>
+                                  <td>{{resource.TOTAL_UTILIZATION}}</td>
+                                                                  
                               </tr>
                             </tbody>
                         </table>

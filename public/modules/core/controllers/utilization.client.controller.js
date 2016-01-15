@@ -226,5 +226,17 @@ angular.module('core').controller('UtilizationController', ['$scope', 'Authentic
             console.log($scope.example.dateto);
         }
         
+        
+        $scope.practiceQuery = function(){
+        console.log($scope.filter);
+        //POST method
+        $http.post('/mypracticepost', $scope.filter).success(function(response) {
+          // If successful we assign the response to the global user model
+          $scope.utilization = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        });
+        }
+        
    	}
 ]);

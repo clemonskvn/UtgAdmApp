@@ -13,6 +13,10 @@ module.exports = function(app) {
     app.route('/mysqltestpost')
 			.post(core.mysqltestpost);
     
+     // practice post
+    app.route('/mypracticepost')
+			.post(core.mypracticepost);
+    
     //Utilization Sql Data
     app.route('/utilization')
 		.get(core.utilization);

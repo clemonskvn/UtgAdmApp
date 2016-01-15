@@ -67,7 +67,7 @@ exports.mysqltestpost = function (req, res){
 exports.utilization = function (req, res){
   var rows;
 
- 	connection.query('SELECT * from V_VALID_40HRS LIMIT 10', function(err, rows, fields) {
+ 	connection.query('SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL LIMIT 10', function(err, rows, fields) {
  	  if (!err) {
  	    console.log('Select from Utilization table');
  	    console.log('The sql query result is: ', rows);
@@ -75,5 +75,24 @@ exports.utilization = function (req, res){
  	  } else
  	    console.log('Error while performing Query.');
  	  });
+    
+//Practice Filter
+exports.mypracticepost = function (req, res){
+   var rows;
+ 	console.log ('POST Request recieved')
+ 	console.log(req.body);
+	console.log(req.body.PRACTICE);
+	var sQuery1 = "SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM  V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL and PRACTICE= ' " + req.body.PRACTICE + "'";
+	console.log(sQuery1);
 
+  	connection.query(sQuery1, function(err, rows, fields) {
+  	  if (!err) {
+  	    console.log('Select from Util table');
+  	    console.log('The sql query result is: ', rows);
+  	    res.jsonp(rows);
+  	  } else
+  	    console.log('Error while performing Query.');
+  	  });
+
+  };
  };
