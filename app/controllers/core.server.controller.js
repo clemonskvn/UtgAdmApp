@@ -44,7 +44,6 @@ exports.mysqltest = function (req, res){
  	  });
 
  };
-
 exports.mysqltestpost = function (req, res){
    var rows;
  	console.log ('POST Request recieved')
@@ -76,6 +75,9 @@ connection.query('SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZA
  	  });
     
 //Practice Filter
+
+    
+ };   
 exports.mypracticepost = function (req, res){
    var rows;
  	console.log ('POST Request recieved')
