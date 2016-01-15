@@ -285,5 +285,6 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
             console.log($scope.example.value1);
             console.log($scope.example.value2);
         }
+        $scope.startDate = "Start Date";
  }
 ]);
