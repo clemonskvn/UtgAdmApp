@@ -237,10 +237,10 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         });
         }
 
-        $scope.update(){
+       /* $scope.update(){
             console.log($scope.filter)
             
-        }
+        }*/
        
         
    	}
