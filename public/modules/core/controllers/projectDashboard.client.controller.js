@@ -10,28 +10,40 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
         
-      /*  $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });*/
-        
-        // Options for Bar Chart
-        var barOptions = {
-        scaleBeginAtZero : true,
-        scaleShowGridLines : true,
-        scaleGridLineColor : "rgba(0,0,0,.05)",
-        scaleGridLineWidth : 1,
-        barShowStroke : true,
-        barStrokeWidth : 2,
-        barValueSpacing : 5,
-        barDatasetSpacing : 1
-};
+    $scope.doughnutData = [
+        {
+            value: 300,
+            color:"#a3e1d4",
+            highlight: "#1ab394",
+            label: "App"
+        },
+        {
+            value: 50,
+            color: "#dedede",
+            highlight: "#1ab394",
+            label: "Software"
+        },
+        {
+            value: 100,
+            color: "#A4CEE8",
+            highlight: "#1ab394",
+            label: "Laptop"
+        }
+    ];
+
+    /**
+     * Options for Doughnut chart
+     */
+    $scope.doughnutOptions = {
+        segmentShowStroke : true,
+        segmentStrokeColor : "#fff",
+        segmentStrokeWidth : 2,
+        percentageInnerCutout : 45, // This is 0 for Pie charts
+        animationSteps : 100,
+        animationEasing : "easeOutBounce",
+        animateRotate : true,
+        animateScale : false
+    };
 
     /**
      * Data for Bar chart
