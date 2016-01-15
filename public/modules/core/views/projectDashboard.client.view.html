@@ -1,9 +1,21 @@
 
 <section data-ng-controller="ProjectController">
-
     <div class="wrapper wrapper-content" data-ng-controller="ProjectController">
-        <div class="row">
-            <div class="col-sm-2">
+        <div class="col-lg-12">
+            <!--<div class="ibox">-->
+                <div class="row">
+                <div class="col-lg-6"> 
+                    <div class="row">
+                    <div class="col-lg-12">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-title">
+                                        <h1>Project Dashboard</h1>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-4">
              <div class="form-group">
                 <select name="project" id="project" class="form-control">
                    <option value="">---Project---</option>
@@ -13,30 +25,24 @@
                 </select>                 
             </div>
            </div>
-            <div class='col-sm-2'>
+            <div class='col-lg-4'>
             <div class="form-group">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-                </div>
-               </div>
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-model="example.value"
+                   placeholder="Start Date" min="2015-01-01" max="2016-12-31" required />
             </div>
-            <div class='col-sm-2'>
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker7'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
             </div>
-        </div>
-    </div>
-            <div class="col-lg-3">
-             <div class="ibox float-e-margins">
+            <div class='col-lg-4'>
+            <div class="form-group">
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-model="example.value"
+                   placeholder="Start Date" min="2015-01-01" max="2016-12-31" required />
+            </div>
+            </div>
+            </div>    
+            </div>   
+            <div class="col-lg-6">     
+                    <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                       <!-- <span class="label label-primary pull-right">Today</span>-->
                         <h6>Progress Bar for SOW Values</h6>
                     </div>
                     <div class="ibox-content">
@@ -49,9 +55,9 @@
                             </div>
                         </div>
                     </div>
-            </div>
-        </div>
-            <div class="col-lg-3">
+                    </div>
+                    </div>
+            <div class="col-lg-6">
              <div class="ibox float-e-margins">
                     <div class="ibox-title">
                        <!-- <span class="label label-primary pull-right">Today</span>-->
@@ -69,8 +75,9 @@
                     </div>
             </div>
         </div>
-        </div>
-        <div class="row">
+            </div>    
+            </div>
+                <div class="row">
             <div class="col-xs-4 col-md-2">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -106,10 +113,8 @@
             </div>
             <div class="col-lg-3">
                 <div class="ibox-content">
-                <!--<div class="flot-chart">
-                <div dataset="flotPieData" options="flotPieOptions" width="80" height="80"></div>
-                    </div>-->
-                    </div>
+                        <canvas id="myPolarChart" width="80" height="80"></canvas>
+                </div>
                 </div>
             <div class="col-lg-3">
              <div class="ibox float-e-margins">
@@ -130,155 +135,42 @@
             </div>
         </div>
         </div>
-         <div class="row">
+           <!-- </div>   -->
+        </div>
+        </div>
+        <hr>
+        <div class="row">
          <div class="col-lg-6">
                 <div class="table-responsive">
-                            <table class="table table-striped">
-
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Master project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>$892,074</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$963,486</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Betha project</td>
-                                    <td>John Smith</td>
-                                    <td>$996,824</td>
-                                    <td>Erat Volutpat</td>
-                                    <td><strong>75%</strong></td>
-                                    <td>Jul 18, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$105,192</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$674,803</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Master project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>$174,729</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$823,198</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Project <small>This is example of project</small></td>
-                                    <td>Patrick Smith</td>
-                                    <td>$778,696</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$861,063</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Betha project</td>
-                                    <td>John Smith</td>
-                                    <td>$109,125</td>
-                                    <td>Erat Volutpat</td>
-                                    <td><strong>75%</strong></td>
-                                    <td>Jul 18, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$600,978</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Alpha project</td>
-                                    <td>Alice Jackson</td>
-                                    <td>$150,161</td>
-                                    <td>Nec Euismod In Company</td>
-                                    <td><strong>40%</strong></td>
-                                    <td>Jul 16, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Project <small>This is example of project</small></td>
-                                    <td>Patrick Smith</td>
-                                    <td>$160,586</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td><strong>20%</strong></td>
-                                    <td>Jul 14, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Gamma project</td>
-                                    <td>Anna Jordan</td>
-                                    <td>$110,612</td>
-                                    <td>Tellus Ltd</td>
-                                    <td><strong>18%</strong></td>
-                                    <td>Jul 22, 2015</td>
-                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Start week</th>
+                                <th>End week</th>
+                                <th>Week no</th>
+                                <th>Year</th>
+                                <th>Practice</th>
+                                <th>Staff</th>
+                                <th>Total Hours</th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat = "resource in utilization">
+                                  <td>{{resource.NAME}}</td>
+                                  <td>{{resource.START_WEEK}}</td>
+                                  <td>{{resource.END_WEEK}}</td>
+                                  <td>{{resource.WEEK_NO}}</td>
+                                  <td>{{resource.DIM_YEAR}}</td>
+                                  <td>{{resource.PRACTICE}}</td>
+                                  <td>{{resource.STAFF_MEMBER}}</td>
+                                  <td>{{resource.TOTAL_HOURS}}</td>
+                                  
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
             </div>
          <div class="col-lg-6">   
            <div class="ibox-content">
@@ -293,5 +185,4 @@
           </div>     
          </div>         
         </div>
-        
     </div>
