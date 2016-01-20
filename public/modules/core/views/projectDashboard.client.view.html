@@ -1,21 +1,10 @@
-
-<section data-ng-controller="ProjectController">
-    <div class="wrapper wrapper-content" data-ng-controller="ProjectController">
-        <div class="col-lg-12">
-            <!--<div class="ibox">-->
-                <div class="row">
-                <div class="col-lg-6"> 
-                    <div class="row">
-                    <div class="col-lg-12">
-                                <div class="ibox float-e-margins">
-                                    <div class="ibox-title">
-                                        <h1>Project Dashboard</h1>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-lg-4">
+<div class="wrapper wrapper-content animated fadeIn" > 
+    <div class="row">
+    <div class="col-lg-6"> 
+    <!--<div class="ibox">-->
+        <div>
+        <div class="row">
+            <div class="col-lg-4">
                     <span class="label label-primary pull-left">Projects</span>  
              <div class="form-group">
                 <select class="form-control" placeholder="Projects" ng-change="onChange()" ng-model="selectedProject" ng-options="project.Name for project in Projects">
@@ -26,121 +15,97 @@
             <div class='col-lg-4'>
             <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value1" placeholder="{{startDate}}" min="2015-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control no-padding" ng-change="myChangeFunction()" ng-model="example.value1" placeholder="{{startDate}}" min="2015-01-01" max="2016-12-31" required />
             </div>
             </div>
             <div class='col-lg-4'>
-            <span class="label label-primary pull-left">Projects</span>  
+            <span class="label label-primary pull-left">End Date</span>  
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value2"
+            <input type="date" id="dateFrom" name="input" class="form-control no-padding" ng-change="myChangeFunction()" ng-       model="example.value2"
                    placeholder="End Date" min="{{example.value1}}" max="2016-12-31" required />
             </div>
             </div>
-            </div>    
-            </div>   
-            <div class="col-lg-6">     
-                    <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h6>Progress Bar for SOW Values</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
+            </div>
+        <!--    </div>-->
+    </div>
+    </div>    
+    <div class="col-lg-6">
+        <div class="col-lg-6">
+        <div class="widget style1 navy-bg">
+                    <h5>Progress Bar for SOW Values</h5>
+                            <div class="row">
                             <div class="col-md-6">
                                 <h4 class="no-margins">$50,000</h4>
                              </div>
                             <div class="col-md-6">
                                 <h4 class="no-margins">$100,0000</h4>
                             </div>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-            <div class="col-lg-6">
-             <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                       <!-- <span class="label label-primary pull-right">Today</span>-->
-                        <h6>Date Last Updated</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="no-margins">1/1/2006</h4>
-                             </div>
-                            <div class="col-md-6">
-                                <h4 class="no-margins">10:53 AM</h4>
                             </div>
+        </div>
+        </div>
+        <div class="col-lg-6">
+        <div class="widget style1 navy-bg">
+                    <h5>Date Last Updated</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h4 class="no-margins">1/1/2006</h4>
+                         </div>
+                        <div class="col-md-6">
+                            <h4 class="no-margins">10:53 AM</h4>
                         </div>
                     </div>
+                    </div>
+            </div>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+    <div class="col-lg-2">
+        <div class="widget style1 red-bg">
+            <div class="row">
+               <div class="text-center">
+                    <span> Active Resources </span>
+                    <h2 class="font-bold">5</h2>
+                </div>
             </div>
         </div>
-            </div>    
-            </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="widget style1 yellow-bg">
             <div class="row">
-            <div class="col-xs-4 col-md-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-success pull-right">Active</span>
-                        <h6>Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">5</h1>
-                    </div>
+               <div class="text-center">
+                    <span> All time Resources </span>
+                    <h2 class="font-bold">9</h2>
                 </div>
             </div>
-            <div class="col-xs-4 col-md-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-success pull-right">All time</span>
-                        <h6>Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">9</h1>
-                    </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="widget style1 blue-bg">
+            <div class="row">
+               <div class="text-center">
+                    <span> Part time Resources </span>
+                    <h2 class="font-bold">2</h2>
                 </div>
             </div>
-            <div class="col-xs-4 col-md-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-success pull-right">Part time</span>
-                        <h6>Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">2</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-            <!--<div class="ibox-content">-->
-                <div class="col-lg-6"> 
-                <canvas id="myDougnut" width="80" height="80">  </canvas>
-                </div>
-                <div class="col-lg-6"> 
-                 <h3>Total Hour Booked</h3>
-                 </div>
-            <!--</div>--> 
-            </div>    
-            <div class="col-lg-3">
-             <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right"></span>
-                        <h6>Over Utilized Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
+        </div>
+    </div>   
+    <div class="col-lg-3">        
+    <div class="widget style1 navy-bg">
+                    <span> Active Resources </span>
+                            <div class="row">
                             <div class="col-md-6">
                                 <h4 class="no-margins">2 resources</h4>
-                            </div>
+                             </div>
                             <div class="col-md-6">
-                                <h4 class="no-margins">200h/160h capacity</h4>
+                                <h4 class="no-margins">200/160h capacity</h4>
                             </div>
-                        </div>
-                    </div>
-            </div>
+                            </div>
         </div>
-            </div>   
+    </div>    
         </div>
-        <hr>
+    </div>
+    <hr>
         <div class="row">
          <div class="col-lg-6">
                 <div class="table-responsive">
@@ -187,4 +152,4 @@
           </div>     
          </div>         
         </div>
-    </div>
+</div>    
