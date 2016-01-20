@@ -7,7 +7,7 @@
             <div class="col-lg-4">
                     <span class="label label-primary pull-left">Projects</span>  
              <div class="form-group">
-                <select class="form-control" placeholder="Projects" ng-change="onChange()" ng-model="selectedProject" ng-options="project.Name for project in Projects">
+                <select class="form-control" placeholder="Projects" ng-change="" ng-model="selectedProject" ng-options="project.Name for project in Projects">
                      <option value="">- Select Project -</option>
         </select>
             </div>
@@ -15,14 +15,13 @@
             <div class='col-lg-4'>
             <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control no-padding" ng-change="myChangeFunction()" ng-model="example.value1" placeholder="{{startDate}}" min="2015-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control no-padding" ng-change="" ng-model="example.value1" placeholder="" min="2015-01-01" max="2016-12-31" required />
             </div>
             </div>
             <div class='col-lg-4'>
             <span class="label label-primary pull-left">End Date</span>  
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control no-padding" ng-change="myChangeFunction()" ng-       model="example.value2"
-                   placeholder="End Date" min="{{example.value1}}" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control no-padding" placeholder="End Date" min="2015-01-01" max="2016-12-31" required />
             </div>
             </div>
             </div>
