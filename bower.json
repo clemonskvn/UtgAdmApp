@@ -21,6 +21,6 @@
     "oclazyload": "~1.0.9",
     "angular-ui-grid": "ng-grid#~3.0.7",
     "Chart.js": "~1.0.2",
-    "angular-flot": "~0.0.16",
-    }
+    "angular-flot": "~0.0.16"
+  }
 }
