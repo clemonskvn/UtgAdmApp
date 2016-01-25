@@ -447,13 +447,52 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     function gd(year, month, day) {
         return new Date(year, month - 1, day).getTime();
     }
+     var lineOptions = {
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [
+                        {
+                            opacity: 0.0
+                        },
+                        {
+                            opacity: 0.0
+                        }
+                    ]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0
+        },
+        colors: ["#1ab394"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth: 0
+        },
+        legend: {
+            show: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };    
 
     /**
      * Definition of variables
      * Flot chart
      */
+        
     $scope.flotData = dataset;
     $scope.flotBarOptions = options;
+    $scope.flotLineOptions = lineOptions;    
 }
  
 ]);
