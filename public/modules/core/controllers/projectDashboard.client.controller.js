@@ -407,7 +407,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         colors: ["#1ab394", "#464f88"],
         tooltip: true,
         xaxis: {
-            mode: "time",
+            //mode: "time",
             tickSize: [3, "day"],
             tickLength: 0,
             axisLabel: "Date",
