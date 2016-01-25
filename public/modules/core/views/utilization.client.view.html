@@ -1,121 +1,112 @@
 <section data-ng-controller="UtilizationController">
-       <div class="wrapper wrapper-content" data-ng-controller="UtilizationController">
+       <div data-ng-controller="UtilizationController">
         <div class="col-lg-12">
-          <!--  <div class="ibox">-->
-                  <!--<div class="ibox-content">-->
-                        <div class="row">
-                        <div class="col-lg-10">
-                                <!--<div class="ibox float-e-margins">
-                                    <div class="ibox-title">-->
-                                        <h1>Utilization Dashboard</h1>
-                                  <!--  </div>
-                                </div>-->
-                            </div>
-                        <div class="col-lg-2 ">
-                            <!--<div class="ibox float-e-margins">
-                                <div class="ibox-title ">-->
-                                <h4>Date Last Updated:</h4>
-                                <small >01/01/2016 10:53 AM</small>
-                                <!--</div>
-                            </div> -->   
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="row">
-            <div class="col-lg-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-success pull-right">Last Week</span>
-                        <h6>Utilization</h6>
-                    </div>
-                    <div class="ibox-content" ng-repeat="util in utilization">
-                        <h3 class="no-margins">{{util.TOTAL_UTILIZATION}}%</h3>
-                         <div class="font-bold text-navy">Total</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-info pull-right"></span>
-                        <h6>Overbooked Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">3</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-content">
-                        <canvas id="myPolarChart" width="100" height="80"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-             <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">Today</span>
-                        <h6>Non-Billable Activities</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="no-margins">5 resources</h4>
-                               <!-- <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>-->
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="no-margins">120 hour total</h4>
-                               <!-- <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow pace</small></div>-->
-                            </div>
-                        </div>
-                    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <div class="row">
+        <div class="col-lg-3">
+           <div class="form-group">
+            <span class="label label-primary pull-left">Practice</span>     
+            <select class="form-control" placeholder="Projects" ng-change="" ng-model="selectedProject" ng-options="project.Name for project in Projects">
+            <option value="">- Select Project -</option>
+            </select>
+        </div>
+        </div>
+        <div class="col-lg-2">
+           <span class="label label-primary pull-left">Start Date</span>      
+            <div class="form-group">
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="" ng-model="example.value1" placeholder="" min="2015-01-01" max="2016-12-31" required />
             </div>
         </div>
-            <div class="col-lg-3">
-             <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">Today</span>
-                        <h6>Over Utilized Resources</h6>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
+        <div class="col-lg-2">
+            <span class="label label-primary pull-left">End Date</span>      
+            <div class="form-group">
+            <input type="date" id="dateTo" name="input" class="form-control" ng-change="" ng-model="example.value1" placeholder="" min="2015-01-01" max="2016-12-31" required />
+            </div>
+        </div>
+        <div class="col-lg-3">
+           <div class="form-group">
+            <span class="label label-primary pull-left">Location</span>     
+            <select class="form-control" placeholder="Projects" ng-change="" ng-model="selectedProject" ng-options="project.Name for project in Projects">
+            <option value="">- Select Location -</option>
+            </select>
+        </div>
+        </div> 
+        <div class="col-lg-2">
+            <h4>Date Last Updated</h4>
+            <small >01/01/2016 10:53 AM</small> 
+        </div>
+    </div>
+    </div>  
+            </div>      
+            <div class="row">   
+    <div class="col-lg-2">
+    <div class="widget style1 yellow-bg" >
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <span>Last week utilization</span>
+                    <hr>
+                    <h2 class="font-bold">99%</h2>
+                </div>
+            </div>
+        </div>    
+    </div> 
+    <div class="col-lg-2">
+    <div class="widget style1 yellow-bg" >
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <span> US/Non US Utilization</span>
+                    <hr>
+                    <h2 class="font-bold">99%</h2>
+                </div>
+            </div>
+        </div>      
+    </div> 
+    <div class="col-lg-2">
+    <div class="widget style1 yellow-bg" >
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <span>Overbooked Resources</span>
+                    <hr>    
+                    <h2 class="font-bold">3</h2>
+                </div>
+            </div>
+        </div>      
+    </div> 
+    
+    <div class="col-lg-3 text-center">
+    <div class="widget style1 navy-bg" >
+                        <span>Non Billable Activities</span>
+                            <hr>    
+                            <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="no-margins">5 resources</h4>
+                             </div>
+                            <div class="col-md-6">
+                                <h4 class="no-margins">120hr total</h4>
+                            </div>
+                            </div>
+        <br>
+        <br>
+        </div>      
+    </div> 
+    <div class="col-lg-3 text-center">
+    <div class="widget style1 navy-bg" >
+                        <span>Over utilized resources</span>
+                            <hr>    
+                            <div class="row">
                             <div class="col-md-6">
                                 <h4 class="no-margins">4 resources</h4>
-                            </div>
+                             </div>
                             <div class="col-md-6">
-                                <h4 class="no-margins">200h/160h capacity</h4>
+                                <h4 class="no-margins">200/160h capacity</h4>
                             </div>
-                        </div>
-                    </div>
-            </div>
+                            </div>
+        <br>
+        </div>      
+    </div> 
 </div>
-            
-        </div> 
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="form-group"><input type="text" placeholder="Practice" ng-model="filter.PRACTICE" class="form-control"> <!--<span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary" ng-click="practiceQuery()"> Go!</button> </span>--></div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                <input type="date" id="dateto" name="input" class="form-control" ng-model="filter.START" placeholder="Start Date" min="2014-01-01" max="2016-12-31" required />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                <input type="date" id="dateFrom" name="input" class="form-control" ng-model="filter.END" placeholder="End Date" min="{{filter.datefrom}}" max="2016-12-31" required />
-                                </div>
-                                </div>
-                           <div class="col-sm-3">
-                                <div class="input-group"><input type="text" placeholder="Location" class="form-control" ng-model="filter.LOCATION"> <span class="input-group-btn" >
-                                <button type="button" class="btn btn-sm btn-primary" ng-click="practiceQuery()"> Apply</button></span>
-                               </div>
-                            </div>
-                            </div>
-                       </div>
-                <!--</div>
-           <!-- </div>-->
+</div>
         <hr>    
         <div class="row">
         <div class="col-lg-6">

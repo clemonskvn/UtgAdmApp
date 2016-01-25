@@ -166,8 +166,8 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
             label: "Laptop"
         }
     ];
-    var ctx2 = document.getElementById("myPolarChart").getContext("2d");    
-    var myPolarChart = new Chart(ctx2).PolarArea(polarData, polarOptions);    
+    /*var ctx2 = document.getElementById("myPolarChart").getContext("2d");    
+    var myPolarChart = new Chart(ctx2).PolarArea(polarData, polarOptions);    */
     /**
      * Options for Polar chart
      */
