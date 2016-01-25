@@ -44,8 +44,8 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         animateRotate : true,
         animateScale : false
     };
-    var dough = document.getElementById("myDougnut").getContext("2d");    
-    var doughnutChart = new Chart(dough).Doughnut(doughnutData, doughnutOptions);  
+    /*var dough = document.getElementById("myDougnut").getContext("2d");    
+    var doughnutChart = new Chart(dough).Doughnut(doughnutData, doughnutOptions);  */
         
     var barOptions = {
         scaleBeginAtZero : true,
@@ -82,8 +82,8 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
             }
         ]
     };    
-    var bar = document.getElementById("myBarChart").getContext("2d");    
-    var myBarChart = new Chart(bar).Bar(barData, barOptions);  
+   /* var bar = document.getElementById("myBarChart").getContext("2d");    
+    var myBarChart = new Chart(bar).Bar(barData, barOptions);  */
     
     var d1 = [[1262304000000, 6], [1264982400000, 3057], [1267401600000, 20434], [1270080000000, 31982], [1272672000000, 26602], [1275350400000, 27826], [1277942400000, 24302], [1280620800000, 24237], [1283299200000, 21004], [1285891200000, 12144], [1288569600000, 10577], [1291161600000, 10295]];
     var d2 = [[1262304000000, 5], [1264982400000, 200], [1267401600000, 1605], [1270080000000, 6129], [1272672000000, 11643], [1275350400000, 19055], [1277942400000, 30062], [1280620800000, 39197], [1283299200000, 37000], [1285891200000, 27000], [1288569600000, 21000], [1291161600000, 17000]];
@@ -453,7 +453,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
      * Flot chart
      */
     $scope.flotData = dataset;
-    $scope.flotOptions = options;
+    $scope.flotBarOptions = options;
 }
  
 ]);
