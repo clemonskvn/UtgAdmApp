@@ -432,7 +432,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
                 color: "#d5d5d5",
                 axisLabelUseCanvas: true,
                 axisLabelFontSizePixels: 12,
-                axisLabelFontFamily: ' Arial',
+                axisLabelFontFamily: 'Arial',
                 axisLabelPadding: 67
             }
         ],
@@ -445,7 +445,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     };
 
     function gd(year, month, day) {
-        return new Date(year, month - 1, day).getTime();
+        return new Date(year, month - 1, day);
     }
      var lineOptions = {
         series: {
