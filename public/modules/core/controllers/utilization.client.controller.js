@@ -9,7 +9,7 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         $scope.descriptionText = 'This shows the utilization of the resources';
         
         //Data For Table
-        $scope.ngData = [
+    $scope.ngData = [
         {Name: "Moroni", Age: 50, Position: 'PR Menager', Status: 'active', Date: '12.12.2014'},
         {Name: "Teancum", Age: 43, Position: 'CEO/CFO', Status: 'deactive', Date: '10.10.2014'},
         {Name: "Jacob", Age: 27, Position: 'UI Designer', Status: 'active', Date: '09.11.2013'},
@@ -71,7 +71,7 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
     var myLineChart = new Chart(ctx).Line(data, options);
         
    // Data and options for Polar Chart
-    var polarOptions={
+  /*  var polarOptions={
     //Boolean - Show a backdrop to the scale label
     scaleShowLabelBackdrop : true,
 
@@ -111,8 +111,8 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
     //Boolean - Whether to animate scaling the chart from the centre
     animateScale : false,
 
-    };    
-    var polarData = [
+    };    */
+/*    var polarData = [
     {
         value: 300,
         color:"#F7464A",
@@ -165,13 +165,13 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
             highlight: "#1ab394",
             label: "Laptop"
         }
-    ];
+    ];*/
     /*var ctx2 = document.getElementById("myPolarChart").getContext("2d");    
     var myPolarChart = new Chart(ctx2).PolarArea(polarData, polarOptions);    */
     /**
      * Options for Polar chart
      */
-    this.polarOptions = {
+/*    this.polarOptions = {
         scaleShowLabelBackdrop : true,
         scaleBackdropColor : "rgba(255,255,255,0.75)",
         scaleBeginAtZero : true,
@@ -189,7 +189,7 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         
         console.log('invoking utilization get');
 		$scope.utilization = utilization.query();
-		console.log($scope.utilization);    
+		console.log($scope.utilization); */   
       
  /*       $scope.tableParams = new ngTableParams({
             page: 1, 
@@ -236,11 +236,27 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
           $scope.error = response.message;
         });
         }
-
-       /* $scope.update(){
-            console.log($scope.filter)
-            
-        }*/
+        //Filters
+         //Data for Practice Select
+        $scope.Practice = [{
+                Id: 1,
+                Name: 'PMO'
+            }];
+        $scope.update(){
+            console.log($scope.selectedPractice.Name)
+        }
+         $scope.Location = [{
+                Id: 1,
+                loc: 'United States'
+            }];
+        $scope.locFilter(){
+            console.log($scope.selectedLocation.loc)
+        }
+        $scope.myChangeFunction= function(){
+            console.log($scope.date.value1);
+            console.log($scope.date.value2);
+        }
+        
        
         
    	}
