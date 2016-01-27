@@ -235,27 +235,27 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         }).error(function(response) {
           $scope.error = response.message;
         });
-        }
+        };
         //Filters
          //Data for Practice Select
         $scope.Practice = [{
                 Id: 1,
                 Name: 'PMO'
             }];
-        $scope.update(){
+        $scope.update = function(){
             console.log($scope.selectedPractice.Name)
-        }
+        };
          $scope.Location = [{
                 Id: 1,
                 loc: 'United States'
             }];
-        $scope.locFilter(){
+        $scope.locFilter = function(){
             console.log($scope.selectedLocation.loc)
-        }
+        };
         $scope.myChangeFunction= function(){
             console.log($scope.date.value1);
             console.log($scope.date.value2);
-        }
+        };
         
        
         

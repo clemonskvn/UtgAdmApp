@@ -278,7 +278,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
                 Name: 'Project 4'
             }          ];
      
-        $scope.onChange= function(){
+        $scope.onProjectSelect= function(){
             console.log($scope.selectedProject.Name);
         }
         $scope.myChangeFunction= function(){

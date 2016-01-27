@@ -6,7 +6,7 @@
         <div class="col-lg-3" data-ng-controller="ProjectController">
            <div class="form-group">
             <span class="label label-primary pull-left">Projects</span>     
-            <select class="form-control" placeholder="Projects" ng-change="onProjectSelect" ng-model="selectedProject" ng-options="project.Name for project in Projects">
+            <select class="form-control" placeholder="Projects" ng-change="onProjectSelect()" ng-model="selectedProject" ng-options="project.Name for project in Projects">
             <option value="">- Select Project -</option>
             </select>
         </div>
@@ -15,7 +15,7 @@
         <div class="col-lg-2" data-ng-controller="ProjectController">
            <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value1" min="2015-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value1" min="2014-01-01" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-2" data-ng-controller="ProjectController">
