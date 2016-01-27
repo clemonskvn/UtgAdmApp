@@ -83,11 +83,14 @@ exports.mypracticepost = function (req, res){
    var rows;
  	console.log ('POST Request recieved')
  	console.log(req.body);
-	console.log(req.body.PRACTICE);
+	/*console.log(req.body.PRACTICE);
     console.log(req.body.LOCATION);
     console.log(req.body.START);
-    console.log(req.body.END);
-    
+    console.log(req.body.END);*/
+    var practice = req.body.Name.Name;
+    var location = req.body.loc.loc;
+    var start = req.body.value1;
+    var end = req.body.value2;
     /*if(req.body.PRACTICE!= "" ){*/
 var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +req.body.LOCATION+ "' and START_DATE>='"+req.body.START+"' and START_DATE<='"+req.body.END+"' and PRACTICE='"+req.body.PRACTICE+"'";
 	console.log(sQuery1);
