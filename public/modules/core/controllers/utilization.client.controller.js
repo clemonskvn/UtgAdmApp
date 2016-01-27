@@ -225,6 +225,9 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
             console.log($scope.example.datefrom);
             console.log($scope.example.dateto);
         }*/
+        console.log('invoking utilization get');
+		$scope.utilization = utilization.query();
+		console.log($scope.utilization);
         
         $scope.practiceQuery = function(){
         console.log($scope.filter);
@@ -243,18 +246,18 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
                 Name: 'PMO'
             }];
         $scope.update = function(){
-            console.log($scope.selectedPractice.Name)
+            console.log($scope.filter.Name)
         };
          $scope.Location = [{
                 Id: 1,
                 loc: 'United States'
             }];
         $scope.locFilter = function(){
-            console.log($scope.selectedLocation.loc)
+            console.log($scope.filter.loc)
         };
         $scope.myChangeFunction= function(){
-            console.log($scope.date.value1);
-            console.log($scope.date.value2);
+            console.log($scope.filter.value1);
+            console.log($scope.filter.value2);
         };
         
        

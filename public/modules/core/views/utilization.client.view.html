@@ -7,7 +7,7 @@
         <div class="col-lg-3">
            <div class="form-group">
             <span class="label label-primary pull-left">Practice</span>     
-            <select class="form-control" placeholder="Practice" ng-change="update()" ng-model="selectedPractice" ng-options="practice.Name for practice in Practice">
+            <select class="form-control" placeholder="Practice" ng-change="update()" ng-model="filter.Name" ng-options="practice.Name for practice in Practice">
             <option value="">- Select Project -</option>
             </select>
         </div>
@@ -15,23 +15,23 @@
         <div class="col-lg-2">
            <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="date.value1" min="2014-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="filter.value1" min="2014-01-01" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-2">
             <span class="label label-primary pull-left">End Date</span>      
             <div class="form-group">
-            <input type="date" id="dateTo" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="date.value2" min="{{date.value1}}" max="2016-12-31" required />
+            <input type="date" id="dateTo" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="filter.value2" min="{{filter.value1}}" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-3">
            <div class="input-group">
             <span class="label label-primary pull-left">Location</span> 
-	    <select class="form-control" placeholder="Location" ng-change="locFilter()" ng-model="selectedLocation" ng-options="location.loc for location in Location">
+	    <select class="form-control" placeholder="Location" ng-change="locFilter()" ng-model="filter.loc" ng-options="location.loc for location in Location">
             <option value="">- Select Location -</option>
             </select>
 	  <span class="input-group-btn">
-    <button class="btn btn-primary" type="button" tabindex="-1"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
+    <button class="btn btn-primary" type="button" ng-click="practiceQuery()" tabindex="-1"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
   </span>
         </div>
         </div> 
