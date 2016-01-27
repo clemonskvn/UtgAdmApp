@@ -92,7 +92,7 @@ exports.mypracticepost = function (req, res){
     var start = req.body.value1;
     var end = req.body.value2;
     /*if(req.body.PRACTICE!= "" ){*/
-var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +req.body.LOCATION+ "' and START_DATE>='"+req.body.START+"' and START_DATE<='"+req.body.END+"' and PRACTICE='"+req.body.PRACTICE+"'";
+var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +location+ "' and START_DATE>='"+start+"' and START_DATE<='"+end+"' and PRACTICE='"+practice+"'";
 	console.log(sQuery1);
     
    	connection.query(sQuery1, function(err, rows, fields) {
