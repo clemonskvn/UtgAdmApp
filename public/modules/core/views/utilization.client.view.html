@@ -7,27 +7,27 @@
         <div class="col-lg-3">
            <div class="form-group">
             <span class="label label-primary pull-left">Practice</span>     
-            <select class="form-control" placeholder="Practice" ng-change="update()" ng-model="filter.Name" ng-options="practice.Name for practice in Practice">
-            <option value="">- Select Project -</option>
+            <select class="form-control" placeholder="Practice" ng-change="practiceQuery()" ng-model="filter.Name" ng-options="practice.Name for practice in Practice">
+           <option value="" disabled selected style="display: none;"> --Select Practice--</option>
             </select>
         </div>
         </div>
         <div class="col-lg-2">
            <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="filter.value1" min="2014-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="practiceQuery()" ng-model="filter.value1" min="2014-01-01" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-2">
             <span class="label label-primary pull-left">End Date</span>      
             <div class="form-group">
-            <input type="date" id="dateTo" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="filter.value2" min="{{filter.value1}}" max="2016-12-31" required />
+            <input type="date" id="dateTo" name="input" class="form-control" ng-change="practiceQuery()" ng-model="filter.value2" min="{{filter.value1}}" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-3">
            <div class="input-group">
             <span class="label label-primary pull-left">Location</span> 
-	    <select class="form-control" placeholder="Location" ng-change="locFilter()" ng-model="filter.loc" ng-options="location.loc for location in Location">
+	    <select class="form-control" placeholder="Location" ng-change="practiceQuery()" ng-model="filter.loc" ng-options="location.loc for location in Location">
             <option value="">- Select Location -</option>
             </select>
 	  <span class="input-group-btn">

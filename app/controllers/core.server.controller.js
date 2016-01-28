@@ -87,21 +87,90 @@ exports.mypracticepost = function (req, res){
     console.log(req.body.LOCATION);
     console.log(req.body.START);
     console.log(req.body.END);*/
-    var practice = req.body.Name.Name;
-    var location = req.body.loc.loc;
+    var stmt= "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL";
+    //Data from the view
+    var practice="";
+    var location = "";	
+    if(req.body.Name == undefined){
+	 practice = null;
+	}
+    else{
+	practice = req.body.Name.Name;
+	}
+    if(req.body.loc == undefined){
+	 location = null;
+	}
+    else{
+	location = req.body.loc.loc;
+	}
     var start = req.body.value1;
     var end = req.body.value2;
-    /*if(req.body.PRACTICE!= "" ){*/
+    console.log(practice + location +start+end);
     
-    var sQuery2 = "SELECT CASE 
-    WHEN '" +practice+ "' ! = null and '"+location+"' = null and '"+start+"' = null and '"+end+"'=null then
-        (SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION         where PRACTICE='"+practice+"') end ";
-  console.log(sQuery2);  
+    // Varioable for appending into sql queries
+    var stmtloc = " LOCATION ='"+location+"'";
+    var stmtprc = " PRACTICE='"+practice+"'";
+    var stmtstart=" START_DATE>='"+start+"'";
+    var stmtend = " START_DATE<='"+end+"'";
+    var stmtand=  " AND ";
     
-var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +location+ "' and START_DATE>='"+start+"' and START_DATE<='"+end+"' and PRACTICE='"+practice+"'";
-	console.log(sQuery1);
+    var statement = "";
+    if(practice!= undefined || practice!= null){
+        statement = stmt+stmtand+stmtprc;
+        console.log("practice"+ statement);
+        if(location!=undefined || location!= null){
+            
+             statement = statement+stmtand+stmtloc;
+            console.log("locat"+ statement);
+        }
+        else if(location==undefined || location == null){
+            statement = statement;
+        }
+        if(start!=undefined){
+             statement = statement+stmtand+stmtstart;
+            console.log("start"+ statement);
+        }
+        else if(start==undefined){
+            statement = statement;
+        }
+        if(end!=undefined){
+            statement = statement+stmtand+stmtend;
+            console.log("end"+ statement);
+        }
+        else if(end==undefined){
+            statement = statement;
+        }
+    }
+    else if(practice == undefined || practice == null){
+        statement = statement;
+        console.log(statement);
+        if(location!=undefined || location!= null){
+            statement = statement+stmtand+stmtloc;
+            console.log("locat"+ statement);
+        }
+        else if(location==undefined|| location == null){
+            statement = statement;
+        }
+        if(start!=undefined){
+             statement = statement+stmtand+stmtstart;
+            console.log("start"+ statement);
+        }
+        else if(start==undefined){
+            statement = statement;
+        }
+        if(end!=undefined){
+            statement = statement+stmtand+stmtend;
+            console.log("end"+ statement);
+        }
+        else if(end==undefined){
+            statement = statement;
+        }
+    }
     
-   	connection.query(sQuery2, function(err, rows, fields) {
+/*var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +location+ "' and START_DATE>='"+start+"' and START_DATE<='"+end+"' and PRACTICE='"+practice+"'";
+	console.log(sQuery1);*/
+    
+   	connection.query(statement, function(err, rows, fields) {
   	  if (!err) {
   	    console.log('Select from Util table');
   	    console.log('The sql query result is: ', rows);

@@ -245,20 +245,20 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
                 Id: 1,
                 Name: 'PMO'
             }];
-        $scope.update = function(){
+        /*$scope.update = function(){
             console.log($scope.filter.Name)
-        };
+        };*/
          $scope.Location = [{
                 Id: 1,
                 loc: 'United States'
             }];
-        $scope.locFilter = function(){
+       /* $scope.locFilter = function(){
             console.log($scope.filter.loc)
-        };
-        $scope.myChangeFunction= function(){
+        };*/
+        /*$scope.myChangeFunction= function(){
             console.log($scope.filter.value1);
             console.log($scope.filter.value2);
-        };
+        };*/
         
        
         
