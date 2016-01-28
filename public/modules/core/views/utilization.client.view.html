@@ -8,7 +8,7 @@
            <div class="form-group">
             <span class="label label-primary pull-left">Practice</span>     
             <select class="form-control" placeholder="Practice" ng-change="practiceQuery()" ng-model="filter.Name" ng-options="practice.Name for practice in Practice">
-           <option value="" disabled selected style="display: none;"> --Select Practice--</option>
+           <option value="">- Select Practice -</option>
             </select>
         </div>
         </div>
@@ -25,16 +25,13 @@
             </div>
         </div>
         <div class="col-lg-3">
-           <div class="input-group">
-            <span class="label label-primary pull-left">Location</span> 
+        <div class="form-group">    
+           <span class="label label-primary pull-left">Location</span> 
 	    <select class="form-control" placeholder="Location" ng-change="practiceQuery()" ng-model="filter.loc" ng-options="location.loc for location in Location">
             <option value="">- Select Location -</option>
             </select>
-	  <span class="input-group-btn">
-    <button class="btn btn-primary" type="button" ng-click="practiceQuery()" tabindex="-1"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
-  </span>
-        </div>
-        </div> 
+            </div>
+	  </div> 
         <div class="col-lg-2">
             <h4>Date Last Updated</h4>
             <small >01/01/2016 10:53 AM</small> 
