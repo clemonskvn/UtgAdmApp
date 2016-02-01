@@ -180,3 +180,9 @@ angular.module('core').factory('utilization', ['$resource',
         );
 	}
 ]);
+angular.module('core').factory('lastweek', ['$resource',
+	function($resource) {
+		return $resource('lastweek'
+        );
+	}
+]);

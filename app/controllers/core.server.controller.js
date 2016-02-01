@@ -74,7 +74,18 @@ connection.query('SELECT TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZA
  	    console.log('Error while performing Query.');
  	  });
     
-//Practice Filter
+//Data for last week Util
+exports.lastweek = function(req, res){
+    var rows;
+connection.query('select * from LAST_WEEK_UTILIZATION s;', function(err, rows, fields) {
+ 	  if (!err) {
+ 	    console.log('Data For last week');
+ 	    console.log('The sql query result is: ', rows);
+ 	    res.jsonp(rows);
+ 	  } else
+ 	    console.log('Error while performing Query.');
+ 	  });
+}    
 
     
  };  
@@ -83,14 +94,13 @@ exports.mypracticepost = function (req, res){
    var rows;
  	console.log ('POST Request recieved')
  	console.log(req.body);
-	/*console.log(req.body.PRACTICE);
-    console.log(req.body.LOCATION);
-    console.log(req.body.START);
-    console.log(req.body.END);*/
-    var stmt= "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL";
+var stmt= "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where STAFF_MEMBER IS NOT NULL";
+    
     //Data from the view
     var practice="";
     var location = "";	
+    var start = "";
+    var end = "";
     if(req.body.Name == undefined){
 	 practice = null;
 	}
@@ -103,20 +113,32 @@ exports.mypracticepost = function (req, res){
     else{
 	location = req.body.loc.loc;
 	}
-    var start = req.body.value1;
-    var end = req.body.value2;
-    console.log(practice + location +start+end);
+    if(req.body.value1 == undefined){
+	start= null;
+	}
+    else{
+	start = "'"+req.body.value1+"'";
+	}
+   if(req.body.value2 == undefined){
+	end= null;
+	}
+    else{
+	end = "'"+req.body.value2+"'";
+	}	
+console.log(practice + location +start+end);
+    
+var stmt2= "select s.TITLE, s.STAFF_MEMBER, s.BILLABLE_UTILIZATION, s.TOTAL_UTILIZATION from (select @FROM_DATE:="+start+") parm1, (select @TO_DATE:="+end+") parm2 , UTILIZATION_BY_EMPLOYEE s where s.STAFF_MEMBER IS NOT NULL";
     
     // Varioable for appending into sql queries
-    var stmtloc = " LOCATION ='"+location+"'";
-    var stmtprc = " PRACTICE='"+practice+"'";
-    var stmtstart=" START_DATE>='"+start+"'";
-    var stmtend = " START_DATE<='"+end+"'";
+    var stmtloc = " s.LOCATION ='"+location+"'";
+    var stmtprc = " s.PRACTICE ='"+practice+"'";
+    var stmtstart=" @FROM_DATE:='"+start+"'";
+    var stmtend = " START_DATE:='"+end+"'";
     var stmtand=  " AND ";
     
     var statement = "";
     if(practice!= undefined || practice!= null){
-        statement = stmt+stmtand+stmtprc;
+        statement = stmt2+stmtand+stmtprc;
         console.log("practice"+ statement);
         if(location!=undefined || location!= null){
             
@@ -126,23 +148,9 @@ exports.mypracticepost = function (req, res){
         else if(location==undefined || location == null){
             statement = statement;
         }
-        if(start!=undefined){
-             statement = statement+stmtand+stmtstart;
-            console.log("start"+ statement);
-        }
-        else if(start==undefined){
-            statement = statement;
-        }
-        if(end!=undefined){
-            statement = statement+stmtand+stmtend;
-            console.log("end"+ statement);
-        }
-        else if(end==undefined){
-            statement = statement;
-        }
     }
     else if(practice == undefined || practice == null){
-        statement = statement;
+        statement = stmt2;
         console.log(statement);
         if(location!=undefined || location!= null){
             statement = statement+stmtand+stmtloc;
@@ -151,26 +159,11 @@ exports.mypracticepost = function (req, res){
         else if(location==undefined|| location == null){
             statement = statement;
         }
-        if(start!=undefined){
-             statement = statement+stmtand+stmtstart;
-            console.log("start"+ statement);
-        }
-        else if(start==undefined){
-            statement = statement;
-        }
-        if(end!=undefined){
-            statement = statement+stmtand+stmtend;
-            console.log("end"+ statement);
-        }
-        else if(end==undefined){
-            statement = statement;
-        }
-    }
+}
     
 /*var sQuery1 = "SELECT PRACTICE,TITLE,STAFF_MEMBER,BILLABLE_UTILIZATION,PRD_DEV_UTILIZATION,TOTAL_UTILIZATION FROM V_WEEKLY_UTILIZATION where LOCATION ='" +location+ "' and START_DATE>='"+start+"' and START_DATE<='"+end+"' and PRACTICE='"+practice+"'";
 	console.log(sQuery1);*/
-    
-   	connection.query(statement, function(err, rows, fields) {
+ connection.query(statement, function(err, rows, fields) {
   	  if (!err) {
   	    console.log('Select from Util table');
   	    console.log('The sql query result is: ', rows);
@@ -180,6 +173,7 @@ exports.mypracticepost = function (req, res){
   	  });
 
   };
+
 //Post fro Dat range
 /*exports.mydaterange = function (req, res){
    var rows;

@@ -1,6 +1,6 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization',
-	function($scope, $http, Authentication, utilization) {
+angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastWeek',
+	function($scope, $http, Authentication, utilization, lastWeek) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -225,9 +225,15 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
             console.log($scope.example.datefrom);
             console.log($scope.example.dateto);
         }*/
+        //Default data for Table
         console.log('invoking utilization get');
 		$scope.utilization = utilization.query();
 		console.log($scope.utilization);
+        
+        //Defaut data for Last week Util
+        console.log('Invoking for last week utilization');
+        $scope.lastWeek = lastweek.query();
+        console.log($scope.lastWeek);
         
         $scope.practiceQuery = function(){
         console.log($scope.filter);

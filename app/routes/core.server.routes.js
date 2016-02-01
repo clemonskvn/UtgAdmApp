@@ -25,5 +25,8 @@ module.exports = function(app) {
     app.route('/utilization')
 		.get(core.utilization);
     
+    //data for last week
+    app.route('/lastweek')
+		.get(core.lastweek);
 
 };
