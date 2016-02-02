@@ -7,7 +7,7 @@
         <div class="col-lg-3">
            <div class="form-group">
             <span class="label label-primary pull-left">Practice</span>     
-            <select class="form-control" placeholder="Practice" ng-change="practiceQuery()" ng-model="filter.Name" ng-options="practice.Name for practice in Practice">
+            <select class="form-control" placeholder="Practice" ng-change="practiceQuery()" ng-model="filter.Name" ng-options="practice.PRACTICE for practice in practice">
            <option value="">- Select Practice -</option>
             </select>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-lg-3">
         <div class="form-group">    
            <span class="label label-primary pull-left">Location</span> 
-	    <select class="form-control" placeholder="Location" ng-change="practiceQuery()" ng-model="filter.loc" ng-options="location.loc for location in Location">
+	    <select class="form-control" placeholder="Location" ng-change="practiceQuery()" ng-model="filter.loc" ng-options="Location.location for Location in location">
             <option value="">- Select Location -</option>
             </select>
             </div>
@@ -43,10 +43,10 @@
     <div class="col-lg-2">
     <div class="widget style1 yellow-bg" >
             <div class="row">
-                <div class="col-xs-12 text-center">
+                <div class="col-xs-12 text-center" ng-repeat ="last in lastWeek">
                     <span>Last week utilization</span>
                     <hr>
-                    <h2 class="font-bold">99%</h2>
+                    <h2 class="font-bold">{{last.BILLABLE_UTILIZATION}}%</h2>
                 </div>
             </div>
         </div>    
@@ -54,10 +54,10 @@
     <div class="col-lg-2">
     <div class="widget style1 yellow-bg" >
             <div class="row">
-                <div class="col-xs-12 text-center">
+                <div class="col-xs-12 text-center" ng-repeat ="bill in billUs">
                     <span> US/Non US Utilization</span>
                     <hr>
-                    <h2 class="font-bold">99%</h2>
+                    <h2 class="font-bold">{{bill.BILLABLE_UTILIZATION}}%</h2>
                 </div>
             </div>
         </div>      
@@ -65,10 +65,10 @@
     <div class="col-lg-2">
     <div class="widget style1 yellow-bg" >
             <div class="row">
-                <div class="col-xs-12 text-center">
+                <div class="col-xs-12 text-center" ng-repeat ="booked in overbooked">
                     <span>Overbooked Resources</span>
                     <hr>    
-                    <h2 class="font-bold">3</h2>
+                    <h2 class="font-bold">{{booked.CNT_OF_OVERBOOKED_RESOURCES}}</h2>
                 </div>
             </div>
         </div>      
@@ -78,15 +78,14 @@
     <div class="widget style1 navy-bg" >
                         <span>Non Billable Activities</span>
                             <hr>    
-                            <div class="row">
+                            <div class="row" ng-repeat="nonbill in billNon">
                             <div class="col-md-6">
-                                <h4 class="no-margins">5 resources</h4>
+                                <h4 class="no-margins">{{nonbill.CNT_RESOURCES}} resources</h4>
                              </div>
                             <div class="col-md-6">
-                                <h4 class="no-margins">120hr total</h4>
+                                <h4 class="no-margins">{{nonbill.TOT_NON_BILLABLE_HOURS}} hr total</h4>
                             </div>
                             </div>
-        <br>
         <br>
         </div>      
     </div> 
@@ -94,12 +93,12 @@
     <div class="widget style1 navy-bg" >
                         <span>Over utilized resources</span>
                             <hr>    
-                            <div class="row">
+                            <div class="row" ng-repeat="over in overUtil">
                             <div class="col-md-6">
-                                <h4 class="no-margins">4 resources</h4>
+                                <h4 class="no-margins">{{over.CNT_OVERUTILIZED_RESOURCES}} resources</h4>
                              </div>
                             <div class="col-md-6">
-                                <h4 class="no-margins">200/160h capacity</h4>
+                                <h4 class="no-margins">{{over.SUM_OVERUTILIZED_HOURS}}/{{over.SUM_ALLOCATED_HOURS}}h capacity</h4>
                             </div>
                             </div>
         <br>

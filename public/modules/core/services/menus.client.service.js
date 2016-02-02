@@ -186,3 +186,49 @@ angular.module('core').factory('lastweek', ['$resource',
         );
 	}
 ]);
+angular.module('core').factory('usbillable', ['$resource',
+	function($resource) {
+		return $resource('usbillable'
+        );
+	}
+]);
+angular.module('core').factory('nonbill', ['$resource',
+	function($resource) {
+		return $resource('nonbill'
+        );
+	}
+]);
+angular.module('core').factory('overutil', ['$resource',
+	function($resource) {
+		return $resource('overutil'
+        );
+	}
+]);
+
+angular.module('core').factory('utilpractice', ['$resource',
+	function($resource) {
+		return $resource('utilpractice'
+        );
+	}
+]);
+
+angular.module('core').factory('utilLocation', ['$resource',
+	function($resource) {
+		return $resource('utilLocation'
+        );
+	}
+]);
+angular.module('core').factory('utiloverbooked', ['$resource',
+	function($resource) {
+		return $resource('utiloverbooked'
+        );
+	}
+                                              
+]);
+angular.module('core').factory('mailing', ['$resource',
+	function($resource) {
+		return $resource('mailing'
+        );
+	}
+]);
+                                           

@@ -1,6 +1,6 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastWeek',
-	function($scope, $http, Authentication, utilization, lastWeek) {
+angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastweek','usbillable','nonbill', 'overutil', 'utilLocation','utiloverbooked', 'utilpractice',
+	function($scope, $http, Authentication, utilization, lastweek, usbillable, nonbill, overutil, utilLocation, utiloverbooked, utilpractice) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -70,162 +70,7 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
     var ctx = document.getElementById("myChart").getContext("2d");
     var myLineChart = new Chart(ctx).Line(data, options);
         
-   // Data and options for Polar Chart
-  /*  var polarOptions={
-    //Boolean - Show a backdrop to the scale label
-    scaleShowLabelBackdrop : true,
-
-    //String - The colour of the label backdrop
-    scaleBackdropColor : "rgba(255,255,255,0.75)",
-
-    // Boolean - Whether the scale should begin at zero
-    scaleBeginAtZero : true,
-
-    //Number - The backdrop padding above & below the label in pixels
-    scaleBackdropPaddingY : 2,
-
-    //Number - The backdrop padding to the side of the label in pixels
-    scaleBackdropPaddingX : 2,
-
-    //Boolean - Show line for each value in the scale
-    scaleShowLine : true,
-
-    //Boolean - Stroke a line around each segment in the chart
-    segmentShowStroke : true,
-
-    //String - The colour of the stroke on each segement.
-    segmentStrokeColor : "#fff",
-
-    //Number - The width of the stroke value in pixels
-    segmentStrokeWidth : 2,
-
-    //Number - Amount of animation steps
-    animationSteps : 100,
-
-    //String - Animation easing effect.
-    animationEasing : "easeOutBounce",
-
-    //Boolean - Whether to animate the rotation of the chart
-    animateRotate : true,
-
-    //Boolean - Whether to animate scaling the chart from the centre
-    animateScale : false,
-
-    };    */
-/*    var polarData = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    },
-    {
-        value: 40,
-        color: "#949FB1",
-        highlight: "#A8B3C5",
-        label: "Grey"
-    },
-    {
-        value: 120,
-        color: "#4D5360",
-        highlight: "#616774",
-        label: "Dark Grey"
-    }
-
-];
-       
-        this.polarData = [
-        {
-            value: 300,
-            color:"#a3e1d4",
-            highlight: "#1ab394",
-            label: "App"
-        },
-        {
-            value: 140,
-            color: "#dedede",
-            highlight: "#1ab394",
-            label: "Software"
-        },
-        {
-            value: 200,
-            color: "#A4CEE8",
-            highlight: "#1ab394",
-            label: "Laptop"
-        }
-    ];*/
-    /*var ctx2 = document.getElementById("myPolarChart").getContext("2d");    
-    var myPolarChart = new Chart(ctx2).PolarArea(polarData, polarOptions);    */
-    /**
-     * Options for Polar chart
-     */
-/*    this.polarOptions = {
-        scaleShowLabelBackdrop : true,
-        scaleBackdropColor : "rgba(255,255,255,0.75)",
-        scaleBeginAtZero : true,
-        scaleBackdropPaddingY : 1,
-        scaleBackdropPaddingX : 1,
-        scaleShowLine : true,
-        segmentShowStroke : true,
-        segmentStrokeColor : "#fff",
-        segmentStrokeWidth : 2,
-        animationSteps : 100,
-        animationEasing : "easeOutBounce",
-        animateRotate : true,
-        animateScale : false
-    };
-        
-        console.log('invoking utilization get');
-		$scope.utilization = utilization.query();
-		console.log($scope.utilization); */   
-      
- /*       $scope.tableParams = new ngTableParams({
-            page: 1, 
-                count: 10, // count per page
-                filter: {
-                    name: 'M' // initial filter
-                },
-                sorting: {
-                    name: 'asc'
-                }
-            }, {
-                total: $scope.data.length, // length of data
-                getData: function ($defer, params) {
-                    // use build-in angular filter
-                    var filteredData = params.filter() ?
-                        $filter('filter')($scope.data, params
-                            .filter()) :
-                        data;
-                    var orderedData = params.sorting() ?
-                        $filter('orderBy')($scope.data,
-                            params.orderBy()) :
-                        $scope.data;
-                    params.total(orderedData.length); // set total for recalc paginationemail
-
-                    $defer.resolve(orderedData.slice((
-                            params.page() -
-                            1) * params.count(),
-                        params.page() *
-                        params.count()));
-                }
-            });*/
-        /*$scope.myChangeFunction= function(){
-            console.log($scope.example.datefrom);
-            console.log($scope.example.dateto);
-        }*/
-        //Default data for Table
+      //Default data for Table
         console.log('invoking utilization get');
 		$scope.utilization = utilization.query();
 		console.log($scope.utilization);
@@ -235,38 +80,74 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         $scope.lastWeek = lastweek.query();
         console.log($scope.lastWeek);
         
+        //Default data for Billable US/non US
+        console.log('Getting Data for Billable Utilization');
+        $scope.billUs = usbillable.query();
+        console.log($scope.billUs);
+        
+        //Default data for non billabele        
+        console.log('Getting Data for Non Billable Utilization');
+        $scope.billNon = nonbill.query();
+        console.log($scope.billNon);
+        
+        //Default data for over utilized        
+        console.log('Getting Data for over utilized');
+        $scope.overUtil = overutil.query();
+        console.log($scope.overUtil);
+        
+        //Default data for Practice dropdown
+        console.log('Invoking Select for Practice');
+        $scope.practice= utilpractice.query();
+        console.log($scope.practice);
+        
+        //Default data for Location dropdown
+        console.log('Invoking Select for Location');
+        $scope.location= utilLocation.query();
+        console.log($scope.location);
+        
+        //Default data for overbooked resources
+        console.log('Invoking for overbooking');
+        $scope.overbooked= utiloverbooked.query();
+        console.log($scope.overbooked);
+        
+        //Post Operations        
         $scope.practiceQuery = function(){
         console.log($scope.filter);
-        //POST method
-        $http.post('/mypracticepost', $scope.filter).success(function(response) {
+        //POST Method
+        $http.post('/mypracticepost', $scope.filter).then(function(response) {
           // If successful we assign the response to the global user model
-          $scope.utilization = response;
+        $scope.utilization = response.data;
+        });
+        //post for last week Utilization   
+        $http.post('/mylastweekpost', $scope.filter).success(function(response) {
+        $scope.lastWeek = response;
         }).error(function(response) {
           $scope.error = response.message;
-        });
+        });   
+/*        //post for billable Utilization   
+        $http.post('/mybillablepost', $scope.filter).success(function(response) {
+        $scope.billUs = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        }); 
+        //post for non billable utilization   
+        $http.post('/mynonbillablepost', $scope.filter).success(function(response) {
+        $scope.billNon = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        });  
+        //post for over utilized resources   
+        $http.post('/myoverutilpost', $scope.filter).success(function(response) {
+        $scope.overUtil = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        });      
+        //post for over overbooked resources   
+        $http.post('/myoverbookedpost', $scope.filter).success(function(response) {
+        $scope.overbooked = response;
+        }).error(function(response) {
+          $scope.error = response.message;
+        }); */
         };
-        //Filters
-         //Data for Practice Select
-        $scope.Practice = [{
-                Id: 1,
-                Name: 'PMO'
-            }];
-        /*$scope.update = function(){
-            console.log($scope.filter.Name)
-        };*/
-         $scope.Location = [{
-                Id: 1,
-                loc: 'United States'
-            }];
-       /* $scope.locFilter = function(){
-            console.log($scope.filter.loc)
-        };*/
-        /*$scope.myChangeFunction= function(){
-            console.log($scope.filter.value1);
-            console.log($scope.filter.value2);
-        };*/
-        
-       
-        
    	}
 ]);
