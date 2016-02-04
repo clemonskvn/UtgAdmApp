@@ -1,13 +1,13 @@
 <section>
-<div>
+<div data-ng-controller="ProjectController">
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-12">
-        <div class="row" data-ng-controller="ProjectController">
+        <div class="row">
         <div class="col-lg-3">
            <div class="form-group">
             <span class="label label-primary pull-left">Projects</span>     
-            <select class="form-control" placeholder="Projects" ng-change="onProjectSelect()" ng-model="selectedProject" ng-options="project.Name for project in Projects">
-            <option value="">- Select Project -</option>
+	<select class="form-control" placeholder="Projects" ng-change="onChange()" ng-model="filter.Name" ng-options="project.PROJECT for project in Projects">
+           <option value="">CENTERPOINT:SAP CORE SUPPORT</option>
             </select>
         </div>
         </div>
@@ -15,19 +15,19 @@
         <div class="col-lg-2">
            <span class="label label-primary pull-left">Start Date</span>      
             <div class="form-group">
-            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value1" min="2014-01-01" max="2016-12-31" required />
+            <input type="date" id="dateFrom" name="input" class="form-control" ng-change="onChange()" ng-model="filter.value1" min="2014-01-01" max="2016-12-31" required />
             </div>
         </div>
         <div class="col-lg-2" >
             <span class="label label-primary pull-left">End Date</span>      
             <div class="form-group">
-            <input type="date" id="dateTo" name="input" class="form-control" ng-change="myChangeFunction()" ng-model="example.value2" min="{{example.value1}}" max="2016-12-31" required />
+            <input type="date" id="dateTo" name="input" class="form-control" ng-change="onChange()" ng-model="filter.value2" min="{{filter.value1}}" max="2016-12-31" required />
             </div>
         </div>
-              <div class="col-lg-3">
+              <div class="col-lg-3" ng-repeat="data in progress">
             <div class="col-xs-12 text-center">
                 <span class="label label-primary pull-left">SOW Value</span><br>      
-                   <progressbar animate="true" value="50" type="danger" class="progress-striped active"><b>$50,000/$100,0000</b>
+                   <progressbar animate="true" value="50" type="danger" class="progress-striped active"><b>${{data.DOLLARS_SPENT}}</b>
         </progressbar>
         </div>
             
@@ -39,10 +39,10 @@
     </div>
     </div>   
 </div>
-<div data-ng-controller="ProjectController">  
+<div>  
 <div class="row">   
 <div class="col-lg-12">
-    <div class="col-lg-3">
+    <div class="col-lg-3"ng-repeat="list in Resources">
     <div class="widget style1 lazur-bg" >
             <div class="row">
                 <!--<div class="col-xs-4 text-center">
@@ -51,50 +51,50 @@
                 <div class="col-xs-12 text-center">
                     <span> Active Resources </span>
                     <hr>
-                    <h2 class="font-bold">5</h2>
+                    <h2 class="font-bold">{{list.CNT_RESOUCRCES}}</h2>
                 </div>
             </div>
         </div>    
     </div> 
-    <div class="col-lg-3">
+    <div class="col-lg-3" ng-repeat="list in Resources">
     <div class="widget style1 lazur-bg" >
             <div class="row">
                 <!--<div class="col-xs-4 text-center">
                     <i class="fa fa-trophy fa-5x"></i>
                 </div>-->
                 <div class="col-xs-12 text-center">
-                    <span> All time resources </span>
+                    <span> Total Hours Billed </span>
                     <hr>
-                    <h2 class="font-bold">9</h2>
+                    <h2 class="font-bold">{{list.TOT_BILLABLE_HOURS}}</h2>
                 </div>
             </div>
         </div>      
     </div> 
-    <div class="col-lg-3">
+    <div class="col-lg-3"ng-repeat="list in Resources">
     <div class="widget style1 lazur-bg" >
             <div class="row">
                 <!--<div class="col-xs-4 text-center">
                     <i class="fa fa-trophy fa-5x"></i>
                 </div>-->
                 <div class="col-xs-12 text-center">
-                    <span> Part time resources </span>
+                    <span> Total Amount Billed </span>
                     <hr>    
-                    <h2 class="font-bold">2</h2>
+                    <h2 class="font-bold">${{list.TOTAL_AMOUNT_BILLED}}</h2>
                 </div>
             </div>
         </div>      
     </div> 
     
-    <div class="col-lg-3 text-center">
+    <div class="col-lg-3 text-center" ng-repeat="list in overUtil">
     <div class="widget style1 red-bg" >
                         <span> Over Utilized Resources </span>
                             <hr>    
                             <div class="row">
                             <div class="col-md-6">
-                                <h4 class="no-margins">2 resources</h4>
+                                <h4 class="no-margins">{{list.CNT_OVERUTILIZED_RESOURCES}} resources</h4>
                              </div>
                             <div class="col-md-6">
-                                <h4 class="no-margins">200/160h capacity</h4>
+                                <h4 class="no-margins">{{list.TOTAL_HOURS_BILLED}}/{{list.TOTAL_HOURS_CAPACITY}}h capacity</h4>
                             </div>
                             </div>
         </div>      
@@ -114,26 +114,20 @@
     <table class="table table-striped">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Start week</th>
-        <th>End week</th>
-        <th>Week no</th>
-        <th>Year</th>
         <th>Practice</th>
+        <th>Title</th>
         <th>Staff</th>
-        <th>Total Hours</th>
+        <th>Billable Hours</th>
+        <th>Max Working Hours</th>
     </tr>
     </thead>
     <tbody>
-        <tr ng-repeat = "resource in utilization">
-        <td>{{resource.NAME}}</td>
-        <td>{{resource.START_WEEK}}</td>
-        <td>{{resource.END_WEEK}}</td>
-        <td>{{resource.WEEK_NO}}</td>
-        <td>{{resource.DIM_YEAR}}</td>
+        <tr ng-repeat = "resource in proTable">
         <td>{{resource.PRACTICE}}</td>
+        <td>{{resource.TITLE}}</td>
         <td>{{resource.STAFF_MEMBER}}</td>
-        <td>{{resource.TOTAL_HOURS}}</td>
+        <td>{{resource.BILLABLE_HOURS}}</td>
+        <td>{{resource.MAX_WORKING_HOURS}}</td>
         </tr>
     </tbody>
     </table>
@@ -141,9 +135,20 @@
 </div>
 <div class="col-lg-6 text-center">
 <h1>Graph</h1>   
- <div class="flot-chart">
-         <div flot class="flot-chart-content" dataset="flotChartData" options="flotLineOptions"></div>
-</div>    
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Billable hours
+                        <small>with respect to dates</small>
+                    </h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+                    <div class="flot-chart">
+                        <div flot class="flot-chart-content" dataset="graph" options="flotBarOptions1"></div>
+                    </div>
+                </div>
+            </div>
+ 
 </div>    
 </div>
 </div>
@@ -153,4 +158,3 @@
 
 
                         
-

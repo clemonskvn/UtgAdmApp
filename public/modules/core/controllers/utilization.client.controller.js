@@ -1,6 +1,6 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastweek','usbillable','nonbill', 'overutil', 'utilLocation','utiloverbooked', 'utilpractice',
-	function($scope, $http, Authentication, utilization, lastweek, usbillable, nonbill, overutil, utilLocation, utiloverbooked, utilpractice) {
+angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastweek','usbillable','nonbill', 'overutil', 'utilLocation','utiloverbooked', 'utilpractice','mylastweekpost',
+	function($scope, $http, Authentication, utilization, lastweek, usbillable, nonbill, overutil, utilLocation, utiloverbooked, utilpractice, mylastweekpost) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -118,12 +118,20 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
           // If successful we assign the response to the global user model
         $scope.utilization = response.data;
         });
+	    $scope.lastWeek= mylastweekpost.Lastweek.query({filter:$scope.filter});
+	    console.log($scope.lastWeek);
+        
+        $scope.billUs = mylastweekpost.Billus.query({filter:$scope.filter});
+        $scope.billNon = mylastweekpost.Billnonus.query({filter:$scope.filter});
+        $scope.overUtil = mylastweekpost.Overutil.query({filter:$scope.filter});
+        $scope.overbooked = mylastweekpost.Overbooked.query({filter:$scope.filter});
+            
         //post for last week Utilization   
-        $http.post('/mylastweekpost', $scope.filter).success(function(response) {
-        $scope.lastWeek = response;
-        }).error(function(response) {
-          $scope.error = response.message;
-        });   
+       // $http.post('/mylastweekpost', $scope.filter).success(function(response) {
+       // $scope.lastWeek = response;
+       // }).error(function(response) {
+       //   $scope.error = response.message;
+       // });   
 /*        //post for billable Utilization   
         $http.post('/mybillablepost', $scope.filter).success(function(response) {
         $scope.billUs = response;

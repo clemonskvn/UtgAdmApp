@@ -14,7 +14,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
        //Get mail method
         console.log('Invoking for Triggering email');
         $scope.mailContent = mailing.query();
-        console.log($scope.mailContent);   
+        console.log($scope.mailContent); 
         }
 	}
 ]);

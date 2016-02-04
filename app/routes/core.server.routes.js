@@ -20,7 +20,7 @@ module.exports = function(app) {
     // mylastweekpost post
     app.route('/mylastweekpost')
 			.post(core.mylastweekpost);
-/*    // mybillablepost post
+    // mybillablepost post
     app.route('/mybillablepost')
 			.post(core.mybillablepost);
     // mynonbillablepost post
@@ -31,8 +31,40 @@ module.exports = function(app) {
 			.post(core.myoverutilpost);
     // myoverbookedpost  post
     app.route('/myoverbookedpost')
-			.post(core.myoverbookedpost);*/
-   
+			.post(core.myoverbookedpost);
+    //Project Dashboard
+    // Project dropdown
+    app.route('/getproject')
+			.get(core.getproject);
+    // Resources
+    app.route('/getresources')
+			.get(core.getresources);  
+    // OverUtilized Resources
+     app.route('/getoverutil')
+			.get(core.getoverutil);
+     // Project Table
+     app.route('/protable')
+			.get(core.protable); 
+      // Progress indicator
+     app.route('/progress')
+			.get(core.progress);
+     app.route('/graph')
+			.get(core.graph);
+    /////////
+      // Resources
+    app.route('/postresources')
+			.post(core.postresources); 
+     // Over Util
+    app.route('/postoverutil')
+			.post(core.postoverutil);
+     // table
+    app.route('/postprotable')
+			.post(core.postprotable);
+    // Progress
+    app.route('/postprogress')
+			.post(core.postprogress);
+    
+    
     // Date range in Utlization
    /* app.route('/mydaterange')
 			.post(core.mydaterange);*/

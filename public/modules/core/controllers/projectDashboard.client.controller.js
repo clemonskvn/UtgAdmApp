@@ -1,15 +1,65 @@
 'use strict';
 
 
-angular.module('core').controller('ProjectController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('ProjectController', ['$scope','$http', 'Authentication','getRequest', 'postRequest',
+	function($scope,$http, Authentication, getRequest, postRequest) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
         // Some example string
         $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
+        /*$scope.filter=[];
+        $scope.filter.Name=[];
+	    $scope.filter.Name.PROJECT="CENTERPOINT:SAP CORE SUPPORT";*/
         
+        $scope.onStart= function(){
+      
+        console.log('Getting Data for Project Filter');
+        $scope.Projects = getRequest.projects.query();
+             
+        console.log("Getting Data for Resources KPI's");
+        $scope.Resources = getRequest.resources.query();
+      
+        console.log('Getting Data for over Utilized resources');
+        $scope.overUtil = getRequest.overutil.query();
+        
+        console.log('Getting Data for Project Table');
+        $scope.proTable = getRequest.protable.query();    
+            
+        console.log('Getting Data for Progress');
+        $scope.progress = getRequest.progress.query();    
+        console.log($scope.progress); 
+        
+        console.log('Getting Data for Graphs');
+        $scope.graph = getRequest.graph.query();    
+        console.log($scope.graph);  
+          
+        };
+        $scope.onStart();
+         
+        $scope.onChange= function(){
+        console.log($scope.filter); 
+        console.log("Filtering for Resources KPI's");
+        $scope.Resources = postRequest.resources.query({filter:$scope.filter});
+        $scope.overUtil = postRequest.overutil.query({filter:$scope.filter});    
+        $scope.proTable = postRequest.protable.query({filter:$scope.filter});      
+        $scope.progress = postRequest.progress.query({filter:$scope.filter}); 
+        };
+        
+         /*var len = $scope.graph
+          var len1 =len.length;
+          $scope.l = len1;
+          var arr = [];
+          var arr1 =[];
+          for(var i = 0; i < $scope.graph.length; i++) 
+          {
+              var obj = $scope.graph[i];
+              arr.push(obj.BILLABLE_HOURS);  
+              //arr1.push(obj.Progress);
+              
+          }
+          console.log(arr)*/
     var doughnutData = [
         {
             value: 300,
@@ -47,7 +97,7 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     /*var dough = document.getElementById("myDougnut").getContext("2d");    
     var doughnutChart = new Chart(dough).Doughnut(doughnutData, doughnutOptions);  */
         
-    var barOptions = {
+   var barOptions = {
         scaleBeginAtZero : true,
         scaleShowGridLines : true,
         scaleGridLineColor : "rgba(0,0,0,.05)",
@@ -263,30 +313,17 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
         }
     };
     //Data for Select
-        $scope.Projects = [{
-                Id: 1,
-                Name: 'Project 1'
-            }, {
-                Id: 2,
-                Name: 'Project 2'
-            }, {
-                Id: 3,
-                Name: 'Project 3'
-            },
-                {
-                Id: 4,
-                Name: 'Project 4'
-            }          ];
+      
      
-        $scope.onProjectSelect= function(){
-            console.log($scope.selectedProject.Name);
+/*        $scope.onProjectSelect= function(){
+            console.log($scope.filter.Name.PROJECT);
         }
         $scope.myChangeFunction= function(){
             console.log($scope.example.value1);
             console.log($scope.example.value2);
         }
         $scope.startDate = "Start Date";
-        
+        */
     //Flot Charts    
     var data1 = [
         [gd(2012, 1, 1), 7],
@@ -493,6 +530,62 @@ angular.module('core').controller('ProjectController', ['$scope', 'Authenticatio
     $scope.flotData = dataset;
     $scope.flotBarOptions = options;
     $scope.flotLineOptions = lineOptions;    
+
+            var barOptions = {
+        series: {
+            bars: {
+                show: true,
+                barWidth: 0.6,
+                fill: true,
+                fillColor: {
+                    colors: [
+                        {
+                            opacity: 0.8
+                        },
+                        {
+                            opacity: 0.8
+                        }
+                    ]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0
+        },
+        colors: ["#1ab394"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth: 0
+        },
+        legend: {
+            show: true
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+
+    var chartData = [
+        {
+            label: "bar",
+            data: [
+                [1, 34],
+                [2, 25],
+                [3, 19],
+                [4, 34],
+                [5, 32],
+                [6, 44]
+            ]
+        }
+    ];
+        
+$scope.flotBarOptions1 = barOptions;
+$scope.flotChartData1 = chartData;
+        
 }
  
 ]);
