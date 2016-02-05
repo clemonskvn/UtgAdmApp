@@ -44,20 +44,26 @@
     <div class="widget style1 yellow-bg" >
             <div class="row">
                 <div class="col-xs-12 text-center" ng-repeat ="last in lastWeek">
-                    <span>Last week utilization</span>
+                    <span><b><strong>Last week utilization</strong></b></span>
                     <hr>
                     <h2 class="font-bold">{{last.BILLABLE_UTILIZATION}}%</h2>
                 </div>
             </div>
         </div>    
     </div> 
-    <div class="col-lg-2">
+      <div class="col-lg-2">
     <div class="widget style1 yellow-bg" >
-            <div class="row">
-                <div class="col-xs-12 text-center" ng-repeat ="bill in billUs">
-                    <span> US/Non US Utilization</span>
-                    <hr>
-                    <h2 class="font-bold">{{bill.BILLABLE_UTILIZATION}}%</h2>
+            <div class="row text-center" style="margin-bottom:-2px">
+               <div class="col-xs-12 text-center" ng-repeat ="bill in billUs" >
+                    <span><b>US Utilization:</b></span><br>
+                    <h3><b>{{bill.BILLABLE_UTILIZATION}}%</b></h3>
+                </div>
+            </div>
+      <hr>
+          <div class="row text-center" >
+                <div class="col-xs-12 text-center" style="margin-top:-10px" ng-repeat ="nbill in billNonUs">
+                    <span style="display:inline-block; white-space:nowrap"><b>Non US Utlization:</b></span>
+                    <h3><b>{{nbill.BILLABLE_UTILIZATION}}%</b></h3>
                 </div>
             </div>
         </div>      
@@ -66,7 +72,7 @@
     <div class="widget style1 yellow-bg" >
             <div class="row">
                 <div class="col-xs-12 text-center" ng-repeat ="booked in overbooked">
-                    <span>Overbooked Resources</span>
+                    <span><b><strong>Overbooked Resources</b></strong></span>
                     <hr>    
                     <h2 class="font-bold">{{booked.CNT_OF_OVERBOOKED_RESOURCES}}</h2>
                 </div>
@@ -76,7 +82,7 @@
     
     <div class="col-lg-3 text-center">
     <div class="widget style1 navy-bg" >
-                        <span>Non Billable Activities</span>
+        <span><b><strong>Non Billable Activities</strong></b></span>
                             <hr>    
                             <div class="row" ng-repeat="nonbill in billNon">
                             <div class="col-md-6">
@@ -91,7 +97,7 @@
     </div> 
     <div class="col-lg-3 text-center">
     <div class="widget style1 navy-bg" >
-                        <span>Over utilized resources</span>
+        <span><b><strong>Over utilized resources</strong></b></span>
                             <hr>    
                             <div class="row" ng-repeat="over in overUtil">
                             <div class="col-md-6">
@@ -108,18 +114,16 @@
 </div>
         <hr>    
         <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 text-center">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>TITLE</th>
-                                <th>STAFF_MEMBER</th>
-                                <th>BILLABLE_UTILIZATION</th>
-                                <th>PRD_DEV_UTILIZATION</th>
-                                <th>TOTAL_UTILIZATION</th>
-                             
-                                
+                                <th>Title</th>
+                                <th>Staff Member</th>
+                                <th>Billable Utilization</th>
+                                <th>Production Utilization</th>
+                                <th>Total Utilization</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -129,11 +133,9 @@
                                   <td>{{resource.BILLABLE_UTILIZATION}}</td>
                                   <td>{{resource.PRD_DEV_UTILIZATION}}</td>
                                   <td>{{resource.TOTAL_UTILIZATION}}</td>
-                                                                  
                               </tr>
                             </tbody>
                         </table>
-
                     </div>
                  </div>
         <div class="col-lg-6">

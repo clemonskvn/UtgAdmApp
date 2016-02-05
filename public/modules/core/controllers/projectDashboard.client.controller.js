@@ -32,8 +32,36 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
         console.log($scope.progress); 
         
         console.log('Getting Data for Graphs');
-        $scope.graph = getRequest.graph.query();    
-        console.log($scope.graph);  
+        //$scope.graph = getRequest.graph.query();    
+        //console.log($scope.graph);  
+            
+        $http.get('/graph').success(function(data2) {
+            
+            $scope.labels=[];
+            //$scope.labels=data2;
+            console.log(Object.keys(data2).length);
+            var limit=Object.keys(data2).length
+            //console.log(data2);
+            var len="";
+            for (var i=0; i<limit; i+=2){
+             len = data2[i]; 
+             $scope.label1=[];
+             $scope.label1.push(len.BILLABLE_HOURS);
+             $scope.label1.push(len.DIM_DATE);
+            $scope.labels.push($scope.label1);
+             
+            }
+                console.log($scope.labels);
+            
+/*            console.log(data);
+            $scope.labels=[];
+            
+            data2.forEach(function(r) {
+                
+             $scope.labels.push(r.BILLABLE_HOURS);
+             $scope.labels.push(r.DIM_DATE);
+            console.log($scope.labels);
+  });*/      });    
           
         };
         $scope.onStart();
@@ -230,6 +258,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
             ]
         }
     ];
+        
     $scope.flotLineAreaOptions={
         series: {
             lines: {
@@ -572,20 +601,25 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
     var chartData = [
         {
             label: "bar",
-            data: [
-                [1, 34],
-                [2, 25],
+            data: [[1, 34],
+                [2, 22],
                 [3, 19],
-                [4, 34],
+                [4, 12],
                 [5, 32],
-                [6, 44]
-            ]
+                [6, 54],
+                [7, 23],
+                [8, 57],
+                [9, 12],
+                [10, 24],
+                [11, 44],
+                [12, 64],
+                [13, 21]
+                ]
         }
     ];
-        
+   
 $scope.flotBarOptions1 = barOptions;
 $scope.flotChartData1 = chartData;
-        
 }
  
 ]);

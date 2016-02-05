@@ -1,6 +1,6 @@
 'use strict';
-angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'lastweek','usbillable','nonbill', 'overutil', 'utilLocation','utiloverbooked', 'utilpractice','mylastweekpost',
-	function($scope, $http, Authentication, utilization, lastweek, usbillable, nonbill, overutil, utilLocation, utiloverbooked, utilpractice, mylastweekpost) {
+angular.module('core').controller('UtilizationController', ['$scope', '$http', 'Authentication', 'utilization', 'mylastweekpost',
+	function($scope, $http, Authentication, utilization, mylastweekpost) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -70,62 +70,68 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
     var ctx = document.getElementById("myChart").getContext("2d");
     var myLineChart = new Chart(ctx).Line(data, options);
         
-      //Default data for Table
+    $scope.Fire=function(){
         console.log('invoking utilization get');
-		$scope.utilization = utilization.query();
-		console.log($scope.utilization);
+        $scope.utilization=utilization.utilizations.query();
+       	console.log($scope.utilization);
         
         //Defaut data for Last week Util
         console.log('Invoking for last week utilization');
-        $scope.lastWeek = lastweek.query();
+         $scope.lastWeek=utilization.lastweek.query();
         console.log($scope.lastWeek);
         
         //Default data for Billable US/non US
         console.log('Getting Data for Billable Utilization');
-        $scope.billUs = usbillable.query();
+        $scope.billUs=utilization.usbillable.query();
         console.log($scope.billUs);
+        
+        //Default data for NON US Billable
+        console.log('Getting Data for Non Billable Utilization');
+        $scope.billNonUs=utilization.nonusbillable.query();
+        console.log($scope.billNonUs);
         
         //Default data for non billabele        
         console.log('Getting Data for Non Billable Utilization');
-        $scope.billNon = nonbill.query();
+       $scope.billNon=utilization.nonbill.query();
         console.log($scope.billNon);
         
         //Default data for over utilized        
         console.log('Getting Data for over utilized');
-        $scope.overUtil = overutil.query();
+      $scope.overUtil=utilization.overutil.query();
         console.log($scope.overUtil);
         
         //Default data for Practice dropdown
         console.log('Invoking Select for Practice');
-        $scope.practice= utilpractice.query();
+         $scope.practice=utilization.utilpractice.query();
         console.log($scope.practice);
         
         //Default data for Location dropdown
         console.log('Invoking Select for Location');
-        $scope.location= utilLocation.query();
+         $scope.location=utilization.utilLocation.query();
         console.log($scope.location);
         
         //Default data for overbooked resources
         console.log('Invoking for overbooking');
-        $scope.overbooked= utiloverbooked.query();
+         $scope.overbooked=utilization.utiloverbooked.query();
         console.log($scope.overbooked);
+    };
+    $scope.Fire();    
         
         //Post Operations        
         $scope.practiceQuery = function(){
         console.log($scope.filter);
         //POST Method
-        $http.post('/mypracticepost', $scope.filter).then(function(response) {
+        /*$http.post('/mypracticepost', $scope.filter).then(function(response) {
           // If successful we assign the response to the global user model
         $scope.utilization = response.data;
-        });
-	    $scope.lastWeek= mylastweekpost.Lastweek.query({filter:$scope.filter});
-	    console.log($scope.lastWeek);
-        
+        });*/
+        $scope.utilization= mylastweekpost.practice.query({filter:$scope.filter});  
+        $scope.lastWeek= mylastweekpost.Lastweek.query({filter:$scope.filter});
         $scope.billUs = mylastweekpost.Billus.query({filter:$scope.filter});
         $scope.billNon = mylastweekpost.Billnonus.query({filter:$scope.filter});
         $scope.overUtil = mylastweekpost.Overutil.query({filter:$scope.filter});
         $scope.overbooked = mylastweekpost.Overbooked.query({filter:$scope.filter});
-            
+        $scope.billNonUs = mylastweekpost.nonBillus.query({filter:$scope.filter});
         //post for last week Utilization   
        // $http.post('/mylastweekpost', $scope.filter).success(function(response) {
        // $scope.lastWeek = response;

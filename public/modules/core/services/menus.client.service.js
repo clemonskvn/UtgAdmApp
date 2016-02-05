@@ -176,10 +176,21 @@ angular.module('core').factory('mysqltest', ['$resource',
 // Service for Utlization view
 angular.module('core').factory('utilization', ['$resource',
 	function($resource) {
-		return $resource('utilization'
-        );
-	}
+		return{
+            utilizations: $resource('/utilization', {}, {query:{ method:'GET', isArray: true}}),
+            lastweek:$resource('/lastweek', {}, {query:{ method:'GET', isArray: true}}),
+            usbillable:$resource('/usbillable', {}, {query:{ method:'GET', isArray: true}}),
+            nonbill:$resource('/nonbill', {}, {query:{ method:'GET', isArray: true}}),
+            overutil:$resource('/overutil', {}, {query:{ method:'GET', isArray: true}}),
+            utilpractice:$resource('/utilpractice', {}, {query:{ method:'GET', isArray: true}}),
+            utilLocation:$resource('/utilLocation', {}, {query:{ method:'GET', isArray: true}}),
+            utiloverbooked:$resource('/utiloverbooked', {}, {query:{ method:'GET', isArray: true}}),
+            nonusbillable:$resource('/usnonbillable', {}, {query:{ method:'GET', isArray: true}})
+         
+        }
+      }
 ]);
+/*
 angular.module('core').factory('lastweek', ['$resource',
 	function($resource) {
 		return $resource('lastweek'
@@ -225,6 +236,8 @@ angular.module('core').factory('utiloverbooked', ['$resource',
 	}
                                               
 ]);
+*/
+
 angular.module('core').factory('mailing', ['$resource',
 	function($resource) {
 		return $resource('mailing'
@@ -232,14 +245,17 @@ angular.module('core').factory('mailing', ['$resource',
 	}
 ]);
 
+
 angular.module('core').factory('mylastweekpost', ['$resource',
 	function($resource) {
 		return{
+            practice:$resource('/mypracticepost', {}, {query:{ method:'POST', isArray: true }}),
             Lastweek: $resource('/mylastweekpost', {}, {query:{ method:'POST', isArray: true }}),
             Billus: $resource('/mybillablepost', {}, {query:{ method:'POST', isArray: true }}),
             Billnonus: $resource('/mynonbillablepost', {}, {query:{ method:'POST', isArray: true }}),
             Overutil: $resource('/myoverutilpost', {}, {query:{ method:'POST', isArray: true }}),
-            Overbooked: $resource('/myoverbookedpost', {}, {query:{ method:'POST', isArray: true }})
+            Overbooked: $resource('/myoverbookedpost', {}, {query:{ method:'POST', isArray: true }}),
+            nonBillus: $resource('/mynonusbillablepost', {}, {query:{ method:'POST', isArray: true }})
         }
       }
 ]);
@@ -251,8 +267,8 @@ angular.module('core').factory('getRequest', ['$resource',
             resources: $resource('/getresources', {}, {query:{ method:'GET', isArray: true}}),
             overutil:$resource('/getoverutil', {}, {query:{ method:'GET', isArray: true}}),
             protable:$resource('/protable', {}, {query:{ method:'GET', isArray: true}}),
-            progress:$resource('/progress', {}, {query:{ method:'GET', isArray: true}}),
-            graph:$resource('/graph', {}, {query:{ method:'GET', isArray: true}})
+            progress:$resource('/progress', {}, {query:{ method:'GET', isArray: true}})
+            //graph:$resource('/graph', {}, {query:{ method:'GET', isArray: true}})
         }
       }
 ]);

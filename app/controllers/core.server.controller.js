@@ -112,6 +112,18 @@ exports.usbillable= function(req, res){
  	  });
     
 };
+exports.usnonbillable= function(req, res){
+    var rows;
+    connection.query('select BILLABLE_UTILIZATION from UTILIZATION_NON_US s', function(err, rows, fields) {
+ 	  if (!err) {
+ 	    console.log('Non-Billable');
+ 	    console.log('The sql query result is: ', rows);
+ 	    res.jsonp(rows);
+ 	  } else
+ 	    console.log('Error while performing Query.');
+ 	  });
+    
+};
 
 exports.utilLocation= function(req, res){
     var rows;
@@ -645,6 +657,46 @@ var stmt="select BILLABLE_UTILIZATION from UTILIZATION_US s";
 connection.query(statement, function(err, rows, fields) {
   	  if (!err) {
   	    console.log('Select from over utilized resources');
+  	    console.log('The sql query result is: ', rows);
+  	    res.jsonp(rows);
+  	  } else
+  	    console.log('Error while performing Query.');
+  	  });
+
+};
+exports.mynonusbillablepost= function(req, res){
+var rows;
+console.log ('POST Request recieved for Non-Billable utilization')
+console.log(req.body);
+var stmt="select BILLABLE_UTILIZATION from UTILIZATION_NON_US s";
+//Data from the view
+ 	var data= req.body.filter;
+    var start = data.value1;
+    var end = data.value2;
+    console.log(start + end);
+    
+    // Varioable for appending into sql queries
+    var stmtstart=" ,(select @FROM_DATE:='"+start+"') parm1";
+    var stmtend = " ,(select @TO_DATE:='"+end+"') parm2";
+    
+    var statement = stmt;
+      if(start!=undefined){
+             statement = statement+stmtstart;
+            console.log("start"+ statement);
+        }
+        else if(start==undefined){
+            statement = statement;
+        }
+        if(end!=undefined){
+            statement = statement+stmtend;
+            console.log("end"+ statement);
+        }
+        else if(end==undefined){
+            statement = statement;
+        }
+  connection.query(statement, function(err, rows, fields) {
+  	  if (!err) {
+  	    console.log('Select from non billable resources');
   	    console.log('The sql query result is: ', rows);
   	    res.jsonp(rows);
   	  } else

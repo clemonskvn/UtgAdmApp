@@ -17,12 +17,16 @@ module.exports = function(app) {
     app.route('/mypracticepost')
 			.post(core.mypracticepost);
     
+    
     // mylastweekpost post
     app.route('/mylastweekpost')
 			.post(core.mylastweekpost);
     // mybillablepost post
     app.route('/mybillablepost')
 			.post(core.mybillablepost);
+     // my non USbillablepost post
+    app.route('/mynonusbillablepost')
+			.post(core.mynonusbillablepost);
     // mynonbillablepost post
     app.route('/mynonbillablepost')
 			.post(core.mynonbillablepost);
@@ -94,6 +98,10 @@ module.exports = function(app) {
     //Data for Overbooked resources
      app.route('/utiloverbooked')
 		.get(core.utiloverbooked);
+    
+    //No us Billable
+    app.route('/usnonbillable')
+			.get(core.usnonbillable);
      
      //trigger on Mail click
      app.route('/mailing')
