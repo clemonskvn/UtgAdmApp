@@ -26,49 +26,9 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
 
     $scope.utilTable = { data: 'ngData' };
         
-        //Data for Line Chart
-    var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-    ]
-};
-    var options={
-        scaleShowGridLines : true,
-        scaleGridLineColor : "rgba(0,0,0,.05)",
-        scaleGridLineWidth : 1,
-        bezierCurve : true,
-        bezierCurveTension : 0.4,
-        pointDot : true,
-        pointDotRadius : 4,
-        pointDotStrokeWidth : 1,
-        pointHitDetectionRadius : 20,
-        datasetStroke : true,
-        datasetStrokeWidth : 2,
-        datasetFill : true
-    };        
         
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(data, options);
+        //Data for Line Chart
+    
         
     $scope.Fire=function(){
         console.log('invoking utilization get');
@@ -114,8 +74,64 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
         console.log('Invoking for overbooking');
          $scope.overbooked=utilization.utiloverbooked.query();
         console.log($scope.overbooked);
+        //Default data for graph
+        console.log('Invoking for graph');
+        $http.get('/utilgraph').success(function(data2) {
+            console.log(data2);
+            $scope.labels=[];
+            $scope.label1=[];
+            $scope.final=[];
+            //$scope.labels=data2;
+            console.log(Object.keys(data2).length);
+            var limit=Object.keys(data2).length
+            //console.log(data2);
+            var len="";
+            for (var i=0; i<limit; i++){
+             len = data2[i]; 
+             //$scope.label1=[];
+             $scope.labels.push(len.BILLABLE_UTILIZATION);
+             $scope.label1.push(len.STAFF_MEMBER);
+            }
+            console.log($scope.labels);
+            console.log($scope.label1);
+            
+     });  
     };
-    $scope.Fire();    
+    $scope.Fire();  
+setTimeout(function() {         
+    var data = {
+    labels: $scope.label1,
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: $scope.labels
+        }
+    ]
+};
+    var options={
+        scaleShowGridLines : true,
+        scaleGridLineColor : "rgba(0,0,0,.05)",
+        scaleGridLineWidth : 1,
+        bezierCurve : true,
+        bezierCurveTension : 0.4,
+        pointDot : true,
+        pointDotRadius : 4,
+        pointDotStrokeWidth : 1,
+        pointHitDetectionRadius : 20,
+        datasetStroke : true,
+        datasetStrokeWidth : 2,
+        datasetFill : true
+    };        
+        
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Bar(data, options);   
+},15000);
         
         //Post Operations        
         $scope.practiceQuery = function(){

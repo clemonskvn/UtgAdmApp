@@ -49,7 +49,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
              len = data2[i]; 
              //$scope.label1=[];
              $scope.labels.push(len.BILLABLE_HOURS);
-             $scope.label1.push(len.DIM_DATE);
+             $scope.label1.push(len.STAFF_MEMBER);
             /*    $scope.labels.push(len.BILLABLE_UTILIZATION);
              $scope.label1.push(len.STAFF_MEMBER);*/
              //$scope.labels.push($scope.label1);
@@ -79,6 +79,40 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
         $scope.overUtil = postRequest.overutil.query({filter:$scope.filter});    
         $scope.proTable = postRequest.protable.query({filter:$scope.filter});      
         $scope.progress = postRequest.progress.query({filter:$scope.filter}); 
+        /*$http.post('/updategraph',$scope.filter).success(function(data2) {
+            console.log(data2);
+            $scope.labels=[];
+            $scope.label1=[];
+            $scope.final=[];
+            //$scope.labels=data2;
+            console.log(Object.keys(data2).length);
+            var limit=Object.keys(data2).length
+            //console.log(data2);
+            var len="";
+            for (var i=0; i<limit; i++){
+             len = data2[i]; 
+             //$scope.label1=[];
+             $scope.labels.push(len.BILLABLE_HOURS);
+             $scope.label1.push(len.STAFF_MEMBER);
+            /*    $scope.labels.push(len.BILLABLE_UTILIZATION);
+             $scope.label1.push(len.STAFF_MEMBER);*/
+             //$scope.labels.push($scope.label1);
+             //$scope.final.push($scope.labels[i]) 
+             //console.log($scope.final);
+            }
+            console.log($scope.labels);
+            console.log($scope.label1);
+            
+/*            console.log(data);
+            $scope.labels=[];
+            
+            data2.forEach(function(r) {
+                
+             $scope.labels.push(r.BILLABLE_HOURS);
+             $scope.labels.push(r.DIM_DATE);
+            console.log($scope.labels);
+  });*/      });   */ 
+            
         };
         
          /*var len = $scope.graph
@@ -628,7 +662,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
 $scope.flotBarOptions1 = barOptions;
 $scope.flotChartData1 = chartData;
         
- setTimeout(function() {        
+setTimeout(function() { 
 $scope.barOptions = {
         scaleBeginAtZero : true,
         scaleShowGridLines : true,
@@ -644,6 +678,8 @@ $scope.barOptions = {
      * Data for Bar chart
      */
         var dui= [10,20,30,50,40,80,10]; /*$scope.labels;*/
+        
+        
     $scope.barData = {
         labels: $scope.label1,
         datasets: [
@@ -661,7 +697,7 @@ $scope.barOptions = {
         
     var ctx = document.getElementById("myChart").getContext("2d");
     var myLineChart = new Chart(ctx).Bar( $scope.barData, $scope.barOptions);    
- },3000);
+ },15000);
         
         
 }

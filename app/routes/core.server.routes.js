@@ -67,6 +67,9 @@ module.exports = function(app) {
     // Progress
     app.route('/postprogress')
 			.post(core.postprogress);
+     // Progress
+    /*app.route('/updategraph')
+			.post(core.updategraph);*/
     
     
     // Date range in Utlization
@@ -98,6 +101,9 @@ module.exports = function(app) {
     //Data for Overbooked resources
      app.route('/utiloverbooked')
 		.get(core.utiloverbooked);
+     //Data for Utilization Graphs
+     app.route('/utilgraph')
+		.get(core.utilgraph);
     
     //No us Billable
     app.route('/usnonbillable')

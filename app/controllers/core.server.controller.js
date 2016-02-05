@@ -775,7 +775,7 @@ exports.progress= function(req,res){
 };
 exports.graph= function(req,res){
     var rows;
-var stmt="SELECT s.DIM_DATE,s.BILLABLE_HOURS FROM (select @FROM_DATE:='2015-01-01') parm1, (select @TO_DATE:='2016-01-31') parm2 ,(select @PROJECT_NAME:='CENTERPOINT:SAP CORE SUPPORT' ) parm3, V_UTGADMAPP_PD_BILLABLE_HOURS_CHART s order by s.DIM_DATE LIMIT 10";
+var stmt="SELECT s.STAFF_MEMBER,s.BILLABLE_HOURS FROM (select @FROM_DATE:='2015-01-01') parm1, (select  @TO_DATE:='2016-01-31') parm2 , (select @PROJECT_NAME:='CENTERPOINT:SAP CORE SUPPORT' ) parm3,V_UTGADMAPP_PD_PROJECT_DETAIL s LIMIT 10";
 
     connection.query(stmt, function(err, rows, fields) {
  	  if (!err) {
@@ -788,6 +788,20 @@ var stmt="SELECT s.DIM_DATE,s.BILLABLE_HOURS FROM (select @FROM_DATE:='2015-01-0
     
 };
 
+exports.utilgraph= function(req,res){
+    var rows;
+var stmt="SELECT STAFF_MEMBER,BILLABLE_UTILIZATION FROM (select @FROM_DATE:='2015-01-01') parm1, (select @TO_DATE:='2016-01-31') parm2 ,(select @PRACTICE_NAME:='BI' ) parm3, UTILIZATION_BY_EMPLOYEE LIMIT 20";
+
+    connection.query(stmt, function(err, rows, fields) {
+ 	  if (!err) {
+ 	    console.log('Graph Data');
+ 	    console.log('The sql query result is: ', rows);
+ 	    res.jsonp(rows);
+ 	  } else
+ 	    console.log('Error while performing Query.');
+ 	  });
+    
+};
 //Post for Project 	postresources
 exports.postresources= function(req, res){
 var rows;
@@ -977,6 +991,53 @@ connection.query(statement, function(err, rows, fields) {
   	  });
 
 };
+/*exports.updategraph= function(req, res){
+var rows;
+console.log ('POST Request recieved for Graph')
+console.log(req.body);
+console.log(req);
+//Data from the view
+ 	var data= req.body.filter;
+    var project="";
+    if(data.Name == undefined){
+	 project = "CENTERPOINT:SAP CORE SUPPORT";
+	}
+    else{
+	project = data.Name.PROJECT;
+	}
+    var start = data.value1;
+    var end = data.value2;
+    console.log(start + end);
+var stmt="SELECT s.STAFF_MEMBER,s.BILLABLE_HOURS FROM (select @PROJECT_NAME:='"+project+"' ) parm3, V_UTGADMAPP_PD_PROJECT_DETAIL s";
+    // Varioable for appending into sql queries
+    var stmtstart=" ,(select @FROM_DATE:='"+start+"') parm1";
+    var stmtend = " ,(select @TO_DATE:='"+end+"') parm2";
+    
+    var statement = stmt;
+      if(start!=undefined){
+            statement = statement+stmtstart;
+            console.log("start"+ statement);
+        }
+        else if(start==undefined){
+            statement = statement;
+        }
+        if(end!=undefined){
+            statement = statement+stmtend;
+            console.log("end"+ statement);
+        }
+        else if(end==undefined){
+            statement = statement;
+        }
+connection.query(statement, function(err, rows, fields) {
+  	  if (!err) {
+  	    console.log('Post of table');
+  	    console.log('The sql query result is: ', rows);
+  	    res.jsonp(rows);
+  	  } else
+  	    console.log('Error while performing Query.');
+  	  });
+
+};*/
 
 
 
