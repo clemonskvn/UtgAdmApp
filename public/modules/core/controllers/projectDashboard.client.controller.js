@@ -99,20 +99,10 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
              //$scope.labels.push($scope.label1);
              //$scope.final.push($scope.labels[i]) 
              //console.log($scope.final);
-            }
-            console.log($scope.labels);
-            console.log($scope.label1);
             
-/*            console.log(data);
-            $scope.labels=[];
             
-            data2.forEach(function(r) {
-                
-             $scope.labels.push(r.BILLABLE_HOURS);
-             $scope.labels.push(r.DIM_DATE);
-            console.log($scope.labels);
-  });*/      }); 
-            
+             
+        
         };
         
          /*var len = $scope.graph
