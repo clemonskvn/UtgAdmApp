@@ -111,7 +111,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
              $scope.labels.push(r.BILLABLE_HOURS);
              $scope.labels.push(r.DIM_DATE);
             console.log($scope.labels);
-  });*/      });   */ 
+  });*/      }); 
             
         };
         

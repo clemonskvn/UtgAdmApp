@@ -104,7 +104,7 @@ setTimeout(function() {
     datasets: [
         {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
+            fillColor: "#1ab394",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
