@@ -5,7 +5,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
 	function($scope,$http, Authentication, getRequest, postRequest) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-
+        $scope.date= new Date();
         // Some example string
         $scope.helloText = 'Project Dashboard';
         $scope.descriptionText = 'Project Dashboards';
@@ -38,18 +38,20 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
         $http.get('/graph').success(function(data2) {
             
             $scope.labels=[];
+            $scope.final=[];
             //$scope.labels=data2;
             console.log(Object.keys(data2).length);
             var limit=Object.keys(data2).length
             //console.log(data2);
             var len="";
-            for (var i=0; i<limit; i+=2){
+            for (var i=0; i<limit; i++){
              len = data2[i]; 
-             $scope.label1=[];
-             $scope.label1.push(len.BILLABLE_HOURS);
-             $scope.label1.push(len.DIM_DATE);
-            $scope.labels.push($scope.label1);
-             
+             //$scope.label1=[];
+             $scope.labels.push(len.BILLABLE_HOURS);
+             //$scope.label1.push(len.DIM_DATE);
+             //$scope.labels.push($scope.label1);
+             //$scope.final.push($scope.labels[i]) 
+             //console.log($scope.final);
             }
                 console.log($scope.labels);
             
@@ -139,6 +141,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
     /**
      * Data for Bar chart
      */
+   
     var barData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
@@ -620,6 +623,43 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
    
 $scope.flotBarOptions1 = barOptions;
 $scope.flotChartData1 = chartData;
+        
+        
+$scope.barOptions = {
+        scaleBeginAtZero : true,
+        scaleShowGridLines : true,
+        scaleGridLineColor : "rgba(0,0,0,.05)",
+        scaleGridLineWidth : 1,
+        barShowStroke : true,
+        barStrokeWidth : 2,
+        barValueSpacing : 5,
+        barDatasetSpacing : 1
+};
+
+    /**
+     * Data for Bar chart
+     */
+        var dui= [10,20,30,50,40,80,10]; /*$scope.labels;*/
+    $scope.barData = {
+        labels: ["01/02/2015", "01/03/2015", "01/04/2015", "01/05/2015", "01/06/2015", "01/07/2015", "01/08/2015"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "#1ab394",
+                strokeColor: "rgba(220,220,220,0.8)",
+                highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                data:dui
+            }
+            
+        ]
+    };
+        
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Bar( $scope.barData, $scope.barOptions);    
+        
+        
 }
+                                                        
  
 ]);

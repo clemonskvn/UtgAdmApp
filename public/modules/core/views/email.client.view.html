@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript" src="https://mandrillapp.com/api/docs/js/mandrill.js"></script>
+    </head>
+<section>
+<div data-ng-controller="EmailController">
+<h1>Employees billed less than 40 hrs.</h1>
+    <button class="btn btn-primary" ng-click="sendMail()">Send Mail!!</button>
+<div class="table-responsive">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Practice Director</th>
+        <th>Email ID</th>
+        <th>Staff Member</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat = "mail in mailContent">
+        <td>{{mail.NAME}}</td>
+        <td>{{mail.EMAIL}}</td>
+        <td>{{mail.STAFF_MEMBER}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>  
+    </div>
+</section>
+    

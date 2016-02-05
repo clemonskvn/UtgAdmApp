@@ -61,6 +61,11 @@ angular.module('core').config(['$stateProvider', '$ocLazyLoadProvider', '$urlRou
         .state('mysqltest', {
 			url: '/mysqltest',
 			templateUrl: 'modules/core/views/mysqltest.client.view.html'
-		});
+		})
+        .state('mailing',{
+            		url: '/mailing',
+			templateUrl: 'modules/core/views/email.client.view.html'
+        
+        });
 	}
 ]);

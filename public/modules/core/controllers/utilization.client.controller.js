@@ -3,7 +3,7 @@ angular.module('core').controller('UtilizationController', ['$scope', '$http', '
 	function($scope, $http, Authentication, utilization, mylastweekpost) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-
+         $scope.date= new Date();
         // Some example string
         $scope.helloText = 'Utilization View';
         $scope.descriptionText = 'This shows the utilization of the resources';
