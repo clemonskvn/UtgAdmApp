@@ -36,8 +36,9 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
         //console.log($scope.graph);  
             
         $http.get('/graph').success(function(data2) {
-            
+            console.log(data2);
             $scope.labels=[];
+            $scope.label1=[];
             $scope.final=[];
             //$scope.labels=data2;
             console.log(Object.keys(data2).length);
@@ -48,12 +49,15 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
              len = data2[i]; 
              //$scope.label1=[];
              $scope.labels.push(len.BILLABLE_HOURS);
-             //$scope.label1.push(len.DIM_DATE);
+             $scope.label1.push(len.DIM_DATE);
+            /*    $scope.labels.push(len.BILLABLE_UTILIZATION);
+             $scope.label1.push(len.STAFF_MEMBER);*/
              //$scope.labels.push($scope.label1);
              //$scope.final.push($scope.labels[i]) 
              //console.log($scope.final);
             }
-                console.log($scope.labels);
+            console.log($scope.labels);
+            console.log($scope.label1);
             
 /*            console.log(data);
             $scope.labels=[];
@@ -624,7 +628,7 @@ angular.module('core').controller('ProjectController', ['$scope','$http', 'Authe
 $scope.flotBarOptions1 = barOptions;
 $scope.flotChartData1 = chartData;
         
-        
+ setTimeout(function() {        
 $scope.barOptions = {
         scaleBeginAtZero : true,
         scaleShowGridLines : true,
@@ -641,7 +645,7 @@ $scope.barOptions = {
      */
         var dui= [10,20,30,50,40,80,10]; /*$scope.labels;*/
     $scope.barData = {
-        labels: ["01/02/2015", "01/03/2015", "01/04/2015", "01/05/2015", "01/06/2015", "01/07/2015", "01/08/2015"],
+        labels: $scope.label1,
         datasets: [
             {
                 label: "My First dataset",
@@ -649,7 +653,7 @@ $scope.barOptions = {
                 strokeColor: "rgba(220,220,220,0.8)",
                 highlightFill: "rgba(220,220,220,0.75)",
                 highlightStroke: "rgba(220,220,220,1)",
-                data:dui
+                data:$scope.labels
             }
             
         ]
@@ -657,6 +661,7 @@ $scope.barOptions = {
         
     var ctx = document.getElementById("myChart").getContext("2d");
     var myLineChart = new Chart(ctx).Bar( $scope.barData, $scope.barOptions);    
+ },3000);
         
         
 }

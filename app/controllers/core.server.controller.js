@@ -775,7 +775,7 @@ exports.progress= function(req,res){
 };
 exports.graph= function(req,res){
     var rows;
-var stmt="SELECT s.DIM_DATE,s.BILLABLE_HOURS FROM (select @FROM_DATE:='2015-01-01') parm1, (select @TO_DATE:='2016-01-31') parm2 ,(select @PROJECT_NAME:='CENTERPOINT:SAP CORE SUPPORT') parm3, V_UTGADMAPP_PD_BILLABLE_HOURS_CHART s order by s.DIM_DATE ";
+var stmt="SELECT s.DIM_DATE,s.BILLABLE_HOURS FROM (select @FROM_DATE:='2015-01-01') parm1, (select @TO_DATE:='2016-01-31') parm2 ,(select @PROJECT_NAME:='CENTERPOINT:SAP CORE SUPPORT' ) parm3, V_UTGADMAPP_PD_BILLABLE_HOURS_CHART s order by s.DIM_DATE LIMIT 10";
 
     connection.query(stmt, function(err, rows, fields) {
  	  if (!err) {

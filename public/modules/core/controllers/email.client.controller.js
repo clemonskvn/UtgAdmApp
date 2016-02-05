@@ -21,7 +21,7 @@ var m = new mandrill.Mandrill('WthYg6uxxJSr1nc3MkGSwQ');
 var params = {
     "message": {
         "from_email":"kevin.clemons@kclemons.us",
-        "to":[{"email":"bhavya.latha@utegration.com"}],
+        "to":[{"email":"vinay.suneja@utegration.com"}],
         "subject": "UtgAdmApp-Test email",
         "html": "<p>Hi *|NAME|*, <br/> <br/>This is to notify that the below employees have billed less than 40 hrs. for this week.<br/><br/>1. Mike<br/>2.John<br/>3.Sherley</br/><br/><br/>Thanks,<br/>UtgAdmApp</p>",
         "autotext": "true",
@@ -29,11 +29,11 @@ var params = {
         "track_clicks":"true",
         "merge_vars": [
             {
-                "rcpt": "bhavya.latha@utegration.com",
+                "rcpt": "vinay.suneja@utegration.com",
                 "vars": [
                     {
                         "name": "NAME",
-                        "content": "Bhavya"
+                        "content": "Vinay"
                     },
                 ]
             }
